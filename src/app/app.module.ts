@@ -1,8 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+
+import {CicloEscolarService} from './services/ciclo_escolar/ciclo-escolar.service';
+
 
 @NgModule({
   declarations: [
@@ -12,7 +17,9 @@ import { AppComponent } from './app.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    CicloEscolarService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
