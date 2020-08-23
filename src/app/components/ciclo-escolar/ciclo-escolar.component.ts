@@ -15,9 +15,7 @@ export class CicloEscolarComponent implements OnInit {
   // TODO: este array se debe dejar vacio
   listaCiclo: Array<Ciclo> = [
     {Ciclo: 1, year:2010},
-    {Ciclo: 2, year:2011},
-    {Ciclo: 3, year:2012},
-    {Ciclo: 4, year:2013}
+    {Ciclo: 2, year:2011}
   ];
 
   newCiclo: Ciclo = {
