@@ -10,20 +10,18 @@ import {Ciclo} from '../../models/ciclo-escolar.interface';
 })
 export class CicloEscolarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cicloService: CicloEscolarService) { }
 
   // TODO: este array se debe dejar vacio
-  listaCiclo: Array<Ciclo> = [
-    {Ciclo: 1, year:2010},
-    {Ciclo: 2, year:2011}
-  ];
+  private listaCiclo: any = [];
 
-  newCiclo: Ciclo = {
-    year: 0
+  //lleva el control del ciclo a crear
+  private newCiclo: Ciclo = {
+    anio: 0
   };
-
-  cicloOperacional: Ciclo = {
-    Ciclo: 0, year: 0
+  // me sirve para actulizar y eliminar
+  private cicloOperacional: Ciclo = {
+    ciclo: 0, anio: 0
   };
 
   ngOnInit(): void {
@@ -33,5 +31,15 @@ export class CicloEscolarComponent implements OnInit {
   Obtener_Ciclo(item: Ciclo): void{
     this.cicloOperacional = item;
   }
+
+  Listar_Cilos():void{
+      this.cicloService.getCiclos().subscribe(
+        res => {
+          this.listaCiclo = res;
+        },
+        err => console.log(err)
+      );
+  }
+
 
 }

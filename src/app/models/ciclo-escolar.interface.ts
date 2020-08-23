@@ -1,4 +1,4 @@
 export interface Ciclo{
-    Ciclo? : number,
-    year? : number
+    ciclo? : number,
+    anio? : number
 }

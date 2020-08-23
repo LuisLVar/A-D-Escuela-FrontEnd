@@ -14,8 +14,8 @@
     </thead>
     <tbody>
       <tr *ngFor = "let item of listaCiclo">
-        <th scope="row">{{item.Ciclo}}</th>
-        <td>{{item.year}}</td>
+        <th scope="row">{{item.ciclo}}</th>
+        <td>{{item.anio}}</td>
 
         <td>
             <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#cambiar" 
@@ -47,7 +47,7 @@
                 <form>
                     <div class="form-group">
                     <label for="formGroupExampleInput">Ciclo escolar</label>
-                    <input type="number" class="form-control" name="year" [(ngModel)]="newCiclo.year">
+                    <input type="number" class="form-control" name="year" [(ngModel)]="newCiclo.anio">
                     </div>
                 </form>
             </div>
@@ -73,7 +73,7 @@
                 <form>
                     <div class="form-group">
                     <label for="formGroupExampleInput">Ciclo escolar</label>
-                    <input type="number" class="form-control" name="year" [(ngModel)]="cicloOperacional.year">
+                    <input type="number" class="form-control" name="year" [(ngModel)]="cicloOperacional.anio">
                     </div>
                 </form>
             </div>
@@ -97,7 +97,7 @@
             </div>
             <div class="modal-body">
             <p>ciclo escolar a eliminar</p>
-            <p>{{cicloOperacional.year}}</p>
+            <p>{{cicloOperacional.anio}}</p>
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
