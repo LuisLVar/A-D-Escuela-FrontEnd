@@ -44,6 +44,8 @@ export class CicloEscolarComponent implements OnInit {
 
   Create_Ciclo():void {
 
+    console.log(this.newCiclo);
+
     delete this.newCiclo.ciclo;
 
     if( this.newCiclo.anio > 0){
@@ -57,7 +59,7 @@ export class CicloEscolarComponent implements OnInit {
         }
       );      
     }
-    this.newCiclo.anio = 0;
+    this.Establecer_Valores();
   }
 
   Delete_Game(): void{
@@ -69,7 +71,8 @@ export class CicloEscolarComponent implements OnInit {
       err => {
         console.log(err);
       }
-    )
+    );
+      this.Establecer_Valores();
   }
 
   Update_Game(): void{
@@ -83,7 +86,15 @@ export class CicloEscolarComponent implements OnInit {
       err => {
         console.log(err);
       }
-    )
+    );
+    this.Establecer_Valores();
+  }
+
+  Establecer_Valores(): void{
+    this.newCiclo.anio = 0;
+    this.newCiclo.ciclo = 0;
+    this.cicloOperacional.anio = 0;
+    this.cicloOperacional.ciclo = 0;
   }
 
 
