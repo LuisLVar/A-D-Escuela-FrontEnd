@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 
 
 import {CicloEscolarService} from './services/ciclo_escolar/ciclo-escolar.service';
+import { CicloEscolarComponent } from './components/ciclo-escolar/ciclo-escolar.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CicloEscolarComponent
   ],
   imports: [
     BrowserModule,
