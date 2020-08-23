@@ -17,6 +17,7 @@ export class CicloEscolarComponent implements OnInit {
 
   //lleva el control del ciclo a crear
   newCiclo: Ciclo = {
+    ciclo: 0,
     anio: 0
   };
   // me sirve para actulizar y eliminar
@@ -41,7 +42,7 @@ export class CicloEscolarComponent implements OnInit {
       );
   }
 
-  Save_Ciclo():void {
+  Create_Ciclo():void {
 
     delete this.newCiclo.ciclo;
 
@@ -57,6 +58,32 @@ export class CicloEscolarComponent implements OnInit {
       );      
     }
     this.newCiclo.anio = 0;
+  }
+
+  Delete_Game(): void{
+    this.cicloService.deleteCiclo(this.cicloOperacional.ciclo)
+    .subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.log(err);
+      }
+    )
+  }
+
+  Update_Game(): void{
+    const id = this.cicloOperacional.ciclo
+    delete this.cicloOperacional.ciclo;
+    this.cicloService.updateCiclo(id, this.cicloOperacional)
+    .subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.log(err);
+      }
+    )
   }
 
 
