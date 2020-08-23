@@ -12,6 +12,7 @@ export class CicloEscolarComponent implements OnInit {
 
   constructor() { }
 
+  // TODO: este array se debe dejar vacio
   listaCiclo: Array<Ciclo> = [
     {Ciclo: 1, year:2010},
     {Ciclo: 2, year:2011},
@@ -19,7 +20,13 @@ export class CicloEscolarComponent implements OnInit {
     {Ciclo: 4, year:2013}
   ];
 
-  cicloOperacional: Ciclo;
+  newCiclo: Ciclo = {
+    year: 0
+  };
+
+  cicloOperacional: Ciclo = {
+    Ciclo: 0, year: 0
+  };
 
   ngOnInit(): void {
   }
