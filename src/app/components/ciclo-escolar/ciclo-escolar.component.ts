@@ -13,14 +13,14 @@ export class CicloEscolarComponent implements OnInit {
   constructor(private cicloService: CicloEscolarService) { }
 
   // TODO: este array se debe dejar vacio
-  private listaCiclo: any = [];
+  public listaCiclo: any = [];
 
   //lleva el control del ciclo a crear
-  private newCiclo: Ciclo = {
+  newCiclo: Ciclo = {
     anio: 0
   };
   // me sirve para actulizar y eliminar
-  private cicloOperacional: Ciclo = {
+  cicloOperacional: Ciclo = {
     ciclo: 0, anio: 0
   };
 
@@ -39,6 +39,24 @@ export class CicloEscolarComponent implements OnInit {
         },
         err => console.log(err)
       );
+  }
+
+  Save_Ciclo():void {
+
+    delete this.newCiclo.ciclo;
+
+    if( this.newCiclo.anio > 0){
+      this.cicloService.saveCiclo(this.newCiclo)
+      .subscribe(
+        res => {
+            console.log(res);
+        },
+        err => {
+          console.log(err);
+        }
+      );      
+    }
+    this.newCiclo.anio = 0;
   }
 
 
