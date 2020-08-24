@@ -14,9 +14,9 @@ export class MateriaService {
   constructor(private http: HttpClient) { }
 
   getMaterias = () =>  this.http.get(`${this.API_URI}/materias`);
-  getCiclo = (id: string) => this.http.get(`${this.API_URI}/materias/${id}`);
-  saveCiclo = (materia: Materia) => this.http.post(`${this.API_URI}/materias`,materia);
-  deleteCiclo = (id: number|string) => this.http.delete(`${this.API_URI}/materias/${id}`);
-  updateCiclo = (id:number|string, updatedMateria: Materia): Observable<Materia> => this.http.put(`${this.API_URI}/materias/${id}`,updatedMateria);
+  getMateria = (id: string) => this.http.get(`${this.API_URI}/materias/${id}`);
+  saveMateria = (materia: Materia) => this.http.post(`${this.API_URI}/materias`,materia);
+  deleteMateria = (id: number|string) => this.http.delete(`${this.API_URI}/materias/${id}`);
+  updateMateria = (id:number|string, updatedMateria: Materia): Observable<Materia> => this.http.put(`${this.API_URI}/materias/${id}`,updatedMateria);
 
 }
