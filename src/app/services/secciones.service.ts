@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Seccion } from '../models/Seccion';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +13,9 @@ export class SeccionesService {
 
   constructor(private http: HttpClient) { }
 
-  getMaterias = () =>  this.http.get(`${this.API_URI}/materias`);
-  getMateria = (id: string) => this.http.get(`${this.API_URI}/materias/${id}`);
-  saveMateria = (materia: Materia) => this.http.post(`${this.API_URI}/materias`,materia);
-  deleteMateria = (id: number|string) => this.http.delete(`${this.API_URI}/materias/${id}`);
-  updateMateria = (id:number|string, updatedMateria: Materia): Observable<Materia> => this.http.put(`${this.API_URI}/materias/${id}`,updatedMateria);
+  getSecciones = () =>  this.http.get(`${this.API_URI}/secciones`);
+  getSeccion = (id: string) => this.http.get(`${this.API_URI}/secciones/${id}`);
+  saveSeccion = (seccion: Seccion) => this.http.post(`${this.API_URI}/secciones`,seccion);
+  deleteSeccion = (id: number|string) => this.http.delete(`${this.API_URI}/materias/${id}`);
+  updateSeccion = (id:number|string, updatedSeccion: Seccion): Observable<Seccion> => this.http.put(`${this.API_URI}/secciones/${id}`,updatedSeccion);
 }
