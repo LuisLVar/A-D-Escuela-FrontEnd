@@ -21,15 +21,16 @@ export class MateriasComponent implements OnInit {
     contenido: ''
   };
   // Lista de objetos materia, Ayuda a listar las materias obtenidas del servidor
-  listMateria:any = [{materia:0,nombre:'Matematicas',contenido:'izi pisi'},{materia:0,nombre:'Ciencia',contenido:'izi pisi'}];
+  listMateria:any = [];
 
   constructor(private _material:MateriaService) { }
-  ngOnInit(): void { }
+  ngOnInit(): void { this.Listar_Materias(); }
   ObtenerMateria(item: Materia): void{ this.updateMateria = item; }
 
-  Listar_Cilos():void{
+  Listar_Materias():void{
     this._material.getMaterias().subscribe(
       res => {
+        console.log(this.listMateria)
         this.listMateria = res;
       },
       err => console.log(err)
@@ -37,9 +38,7 @@ export class MateriasComponent implements OnInit {
   }
 
   CreateMateria():void {
-    console.log(this.newMateria);
     delete this.newMateria.materia;
-
     this._material.saveMateria(this.newMateria)
       .subscribe(
         res => {
