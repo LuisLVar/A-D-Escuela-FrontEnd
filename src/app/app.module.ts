@@ -5,26 +5,25 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PortadaComponent } from './components/portada/portada.component';
-<<<<<<< Updated upstream
 import { LoginComponent } from './components/login/login.component';
-=======
 import { SeccionesComponent } from './components/secciones/secciones.component';
->>>>>>> Stashed changes
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     PortadaComponent,
-<<<<<<< Updated upstream
-    LoginComponent
-=======
+    LoginComponent,
     SeccionesComponent
->>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

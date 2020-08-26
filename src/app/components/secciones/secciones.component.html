@@ -7,22 +7,23 @@
         <tr>
           <th scope="col">#</th>
           <th scope="col">Nombre</th>
+          <th scope="col">Cliclo</th>
           <th scope="col">Actualizar</th>
           <th scope="col">Eliminar</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor = "let item of listMateria; index as i;">
+        <tr *ngFor = "let item of listSecciones; index as i;">
           <th scope="row"><span class="badge badge-primary badge-pill">{{i+1}}</span></th>
           <td>{{item.nombre}}</td>
-          <td>{{item.contenido}}</td>
+          <td>{{item.ciclo}}</td>
           <td>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#update" (click)="ObtenerMateria(item)">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#update" (click)="ObtenerSeccion(item)">
                 <i class="fas fa-pencil-alt"></i>
               </button>
           </td>
           <td>
-              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#eliminar" (click)="ObtenerMateria(item)">
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#eliminar" (click)="ObtenerSeccion(item)">
                 <i class="far fa-trash-alt"></i>
               </button>
           </td>
@@ -30,12 +31,12 @@
       </tbody>
     </table>
   
-  <!--MODAL PARA CREAR UNA NUEVA MATERIA-->
+  <!--MODAL PARA CREAR UNA NUEVA SECCION-->
       <div class="modal" tabindex="-1" id="nuevo">
           <div class="modal-dialog">
           <div class="modal-content">
               <div class="modal-header">
-              <h5 class="modal-title">Nueva Materia</h5>
+              <h5 class="modal-title">Nueva Seccion</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
               </button>
@@ -43,26 +44,26 @@
               <div class="modal-body">
                   <form>
                       <div class="form-group">
-                        <input type="text" [(ngModel)]="newMateria.nombre" class="form-control" name="name" placeholder="Ingrese el nombre de la materia..." required>
+                        <input type="text" [(ngModel)]="newSeccion.nombre" class="form-control" name="name" placeholder="Ingrese el nombre de la seccion..." required>
                       </div>
                       <div class="form-group">
-                        <input type="text" [(ngModel)]="newMateria.contenido" class="form-control" name="description" placeholder="Ingrese su contenido de la materia...">
+                        <input type="text" [(ngModel)]="newSeccion.ciclo" class="form-control" name="description" placeholder="Ingrese su contenido de la materia...">
                       </div>
                   </form>
               </div>
               <div class="modal-footer">
-              <button type="button" class="btn btn-success" data-dismiss="modal" (click)="CreateMateria()">Guardar</button>
+              <button type="button" class="btn btn-success" data-dismiss="modal" (click)="CreateSeccion()">Guardar</button>
               </div>
           </div>
           </div>
       </div>
   
-  <!-- MODAL PARA ACTUALIZAR UNA MATERIA-->
+  <!-- MODAL PARA ACTUALIZAR UNA SECCION-->
       <div class="modal" tabindex="-1" id="update">
           <div class="modal-dialog">
           <div class="modal-content">
               <div class="modal-header">
-              <h5 class="modal-title">Actualización de materia</h5>
+              <h5 class="modal-title">Actualización de Seccion</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
               </button>
@@ -71,37 +72,39 @@
                   <form>
                       <div class="form-group">
                         <label for="formGroupExampleInput">Nombre</label>
-                        <input type="text" class="form-control" name="nameUpdate" [(ngModel)]="updateMateria.nombre" >
+                        <input type="text" class="form-control" name="nameUpdate" [(ngModel)]="updateSeccion.nombre" >
                       </div>
                       <div class="form-group">
                         <label for="formGroupExampleInput">Contenido</label>
-                        <input type="text" class="form-control" name="descriptionUpdate" [(ngModel)]="updateMateria.contenido" >
+                        <select *ngFor = "let item of listSecciones" id="sel" (change)="mientras($event.target.value)">
+                          <option value="{{item.seccion}}" >{{item.nombre}} 
+                          </option>
+                       </select>
                       </div>
                   </form>
               </div>
               <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="UpdateMaterial()">Actualizar</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="UpdateSeccion()">Actualizar</button>
               </div>
           </div>
           </div>
       </div>
-  
-  <!--MODAL PARA ADVERTIR AL USUARIO QUE VA A ELIMINA UNA MATERIA -->
+  <!--MODAL PARA ADVERTIR AL USUARIO QUE VA A ELIMINA UNA SECCION -->
       <div class="modal" tabindex="-1" id="eliminar">
           <div class="modal-dialog">
           <div class="modal-content">
               <div class="modal-header">
-              <h5 class="modal-title">Eliminación de materia</h5>
+              <h5 class="modal-title">Eliminación de Seccion</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
               </button>
               </div>
               <div class="modal-body text-center">
-              <h4>Materia a eliminar</h4>
-              <p>{{updateMateria.nombre}}</p>
+              <h4>Seccion a eliminar</h4>
+              <p>{{updateSeccion.nombre}}</p>
               </div>
               <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="DeleteMateria()">Eliminar</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="DeleteSeccion()">Eliminar</button>
               </div>
           </div>
           </div>
