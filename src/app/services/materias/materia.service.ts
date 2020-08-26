@@ -9,7 +9,7 @@ import { Materia } from '../../models/materia'
 export class MateriaService {
 
   //Variable para la dirección IP del host
-  API_URI = 'direccion';
+  API_URI = 'http://localhost:3000/api';
 
   constructor(private http: HttpClient) { }
 
