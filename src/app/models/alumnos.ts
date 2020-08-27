@@ -6,6 +6,6 @@ export interface Alumno{
   telefono?: number,
   id_alumno?: string,
   encargado?: string,
-  fecha_nacimiento?:string,
+  fecha_nacimiento?:Date,
   estado?: string
 }

@@ -13,10 +13,10 @@ export class AlumnosInscripService {
 
   constructor(private http: HttpClient) { }
 
-  getMaterias = () =>  this.http.get(`${this.API_URI}`);
-  getMateria = (id: string) => this.http.get(`${this.API_URI}/${id}`);
-  saveMateria = (alumno: Alumno) => this.http.post(`${this.API_URI}`,alumno);
-  deleteMateria = (id: number|string) => this.http.delete(`${this.API_URI}/${id}`);
-  updateMateria = (id:number|string, updatedAlumno: Alumno): Observable<Alumno> => this.http.put(`${this.API_URI}/${id}`,updatedAlumno);
+  getAlumnos = () =>  this.http.get(`${this.API_URI}`);
+  getAlumno = (id: string) => this.http.get(`${this.API_URI}/${id}`);
+  saveAlumno = (alumno: Alumno) => this.http.post(`${this.API_URI}`,alumno);
+  deleteAlumno = (id: number|string) => this.http.delete(`${this.API_URI}/${id}`);
+  updateAlumno = (id:number|string, updatedAlumno: Alumno): Observable<Alumno> => this.http.put(`${this.API_URI}/${id}`,updatedAlumno);
 
 }
