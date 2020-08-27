@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Seccion } from '../../models/Seccion';
 import { SeccionesService } from '../../services/secciones.service';
-//import {CicloEscolarService} from '../../services/ciclo_escolar/ciclo-escolar.service';
+//import {CicloEscolarService} from '../../services/ciclo_escolar/ciclo-escolar.service'
+//import {Ciclo} from '../../models/ciclo-escolar.interface';
 //grados
 //personal
 @Component({
@@ -22,8 +23,10 @@ export class SeccionesComponent implements OnInit {
 
   //para probar
   listSecciones:any = [{seccion:0,nombre:'1A',estado:'1',grado:1,personal:1, ciclo:2019},
-                        {seccion:0,nombre:'1B',estado:'1',grado:1,personal:1, ciclo:2019}];
-  resultadoCiclo: any =[{id:0,ciclo:2019},{id:0,ciclo:2020}]
+                        {seccion:1,nombre:'1B',estado:'1',grado:1,personal:1, ciclo:2019}];
+  resultadoCiclo: any =[{ciclo:0,year:2019},{ciclo:1,year:2020}]
+  resultadoPersonal: any=[{personal:0,nombre:"Juan",apellido:"Godinez"},{personal:1,nombre:"Marta",apellido:"de León"}];
+  resultadoGrado: any=[{grado:1,nombre:"Primero Primaria"},{grado:2,nombre:"Segundo Primaria"}]
 
   newSeccion: Seccion = {
     seccion:0,
@@ -42,8 +45,6 @@ export class SeccionesComponent implements OnInit {
     ciclo:0
   };
 
-
-
   Listar_Secciones():void{
     this._seccion.getSecciones().subscribe(
       res => {
@@ -57,6 +58,15 @@ export class SeccionesComponent implements OnInit {
     this._ciclo.getCiclos().subscribe(
       res => {
         this.resultadoCiclo = res;
+      },
+      err => console.log(err)
+    );
+  }*/
+
+   /*Listar_Personal():void{
+    this._personal.getPersonal().subscribe(
+      res => {
+        this.resultadoPersonal = res;
       },
       err => console.log(err)
     );
@@ -121,7 +131,16 @@ export class SeccionesComponent implements OnInit {
 
     this.Establecer_Valores();
   }
-  mientras(val:any){
-    console.log("venas"+ val);
+  getGrado(val:any){
+    console.log("grado"+ val);
+    this.updateSeccion.grado=val;
+  }
+  getCiclo(val:any){
+    console.log("ciclo"+ val);
+    this.updateSeccion.ciclo=val;
+  }
+  getPersonal(val:any){
+    console.log("personal"+ val);
+    this.updateSeccion.personal=val;
   }
 }

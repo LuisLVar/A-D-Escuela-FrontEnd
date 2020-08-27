@@ -47,7 +47,25 @@
                         <input type="text" [(ngModel)]="newSeccion.nombre" class="form-control" name="name" placeholder="Ingrese el nombre de la seccion..." required>
                       </div>
                       <div class="form-group">
-                        <input type="text" [(ngModel)]="newSeccion.ciclo" class="form-control" name="description" placeholder="Ingrese su contenido de la materia...">
+                        <label for="formGroupExampleInput">Personal</label>
+                        <select  id="sel" (change)="getPersonal($event.target.value)">
+                          <option *ngFor = "let item of resultadoPersonal" value="{{item.personal}}" >{{item.nombre}}  {{item.apellido}}
+                          </option>
+                       </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="formGroupExampleInput">Grado</label>
+                        <select  id="sel" (change)="getGrado($event.target.value)">
+                          <option *ngFor = "let item of resultadoGrado" value="{{item.grado}}" >{{item.nombre}} 
+                          </option>
+                       </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="formGroupExampleInput">Ciclo</label>
+                        <select  id="sel" (change)="getCiclo($event.target.value)">
+                          <option *ngFor = "let item of resultadoCiclo" value="{{item.ciclo}}" >{{item.year}} 
+                          </option>
+                       </select>
                       </div>
                   </form>
               </div>
@@ -75,9 +93,23 @@
                         <input type="text" class="form-control" name="nameUpdate" [(ngModel)]="updateSeccion.nombre" >
                       </div>
                       <div class="form-group">
-                        <label for="formGroupExampleInput">Contenido</label>
-                        <select *ngFor = "let item of listSecciones" id="sel" (change)="mientras($event.target.value)">
-                          <option value="{{item.seccion}}" >{{item.nombre}} 
+                        <label for="formGroupExampleInput">Personal</label>
+                        <select  id="sel" (change)="getPersonal($event.target.value)">
+                          <option *ngFor = "let item of resultadoPersonal" value="{{item.personal}}" >{{item.nombre}}  {{item.apellido}}
+                          </option>
+                       </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="formGroupExampleInput">Grado</label>
+                        <select  id="sel" (change)="getGrado($event.target.value)">
+                          <option *ngFor = "let item of resultadoGrado" value="{{item.grado}}" >{{item.nombre}} 
+                          </option>
+                       </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="formGroupExampleInput">Ciclo</label>
+                        <select  id="sel" (change)="getCiclo($event.target.value)">
+                          <option *ngFor = "let item of resultadoCiclo" value="{{item.ciclo}}" >{{item.year}} 
                           </option>
                        </select>
                       </div>
@@ -102,6 +134,7 @@
               <div class="modal-body text-center">
               <h4>Seccion a eliminar</h4>
               <p>{{updateSeccion.nombre}}</p>
+              <p>Grado: {{updateSeccion.grado}}</p>
               </div>
               <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="DeleteSeccion()">Eliminar</button>
