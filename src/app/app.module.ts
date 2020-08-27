@@ -19,13 +19,15 @@ import { MateriasComponent } from './components/materias/materias.component';
 
 import {CicloEscolarService} from './services/ciclo_escolar/ciclo-escolar.service';
 import { CicloEscolarComponent } from './components/ciclo-escolar/ciclo-escolar.component';
+import { InscripcionComponent } from './components/alumnos/inscripcion/inscripcion.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
 <<<<<<< HEAD
-    CicloEscolarComponent
+    CicloEscolarComponent,
+InscripcionComponent
 =======
 <<<<<<< HEAD
     NavbarComponent,
