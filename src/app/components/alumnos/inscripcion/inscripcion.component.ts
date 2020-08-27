@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Alumno } from '../../../models/alumnos'
 import { AlumnosInscripService } from '../../../services/inscripcion/alumnos-inscrip.service'
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-inscripcion',
@@ -21,6 +22,17 @@ export class InscripcionComponent implements OnInit {
     fecha_nacimiento:null,
     estado: ''
   };
+  alum: Alumno = {
+    alumno: 1,
+    nombre: 'Gerardo',
+    apellido: 'Chay',
+    direccion: '13 av B',
+    telefono: 59553462,
+    id_alumno: 'F5899DA',
+    encargado: 'MI MAMA',
+    fecha_nacimiento: new Date(),
+    estado: ''
+  };
   // Objeto Materia, Ayuda a eliminar y actualizar
   updateAlumno: Alumno= {
     alumno: 0,
@@ -34,11 +46,11 @@ export class InscripcionComponent implements OnInit {
     estado: ''
   };
   // Lista de objetos materia, Ayuda a listar las materias obtenidas del servidor
-  listMateria:any = [];
+  listMateria:any = [this.alum];
 
   constructor(private _alumno: AlumnosInscripService) { }
   ngOnInit(): void { }
-  ObtenerMateria(item: Alumno): void{ this.updateAlumno = item; }
+  ObtenerAlumno(item: Alumno): void{ this.updateAlumno = item; }
 
   Listar_Alumnos():void{
     this._alumno.getAlumnos().subscribe(

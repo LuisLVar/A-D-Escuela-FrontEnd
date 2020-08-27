@@ -1,1 +1,156 @@
-<p>inscripcion works!</p>
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#nuevo">
+  <i class="fas fa-user-plus fa-fw"></i>&nbsp; Nuevo Alumno
+</button>
+<br><br>
+<table class="table table-sm table-responsive-sm table-striped table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Dirección</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">ID</th>
+        <th scope="col">Encargado</th>
+        <th scope="col">Fecha Nacimiento</th>
+        <th scope="col"><i class="fas fa-ellipsis-v"></i></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let item of listMateria; index as i;">
+        <th scope="row"><span class="badge badge-primary badge-pill">{{i+1}}</span></th>
+        <td>{{item.nombre}}</td>
+        <td>{{item.apellido}}</td>
+        <td>{{item.direccion}}</td>
+        <td>{{item.telefono}}</td>
+        <td>{{item.id_alumno}}</td>
+        <td>{{item.encargado}}</td>
+        <td>{{item.fecha_nacimiento | date:'mediumDate'}}</td>
+        <td>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#update" (click)="ObtenerAlumno(item)">
+            <i class="fas fa-pencil-alt"></i>
+          </button>
+          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#eliminar" (click)="ObtenerAlumno(item)">
+            <i class="far fa-trash-alt"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+</table>
+
+<!--MODAL PARA CREAR UN NUEVO ALUMNO-->
+    <div class="modal" tabindex="-1" id="nuevo">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title">Nuevo Usuario</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <input type="text" [(ngModel)]="newAlumno.nombre" class="form-control" name="name" placeholder="Nombres" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <input type="text" [(ngModel)]="newAlumno.apellido" class="form-control" name="lastName" placeholder="Apellidos" required>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <input type="date" class="form-control" name="fecha" [(ngModel)]="newAlumno.fecha_nacimiento" >
+                    </div>
+                    <div class="form-group col-md-6">
+                      <input type="number" [(ngModel)]="newAlumno.telefono" class="form-control" name="phone" placeholder="Telefono" >
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <input type="text" [(ngModel)]="newAlumno.id_alumno" class="form-control" name="id" placeholder="ID" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <input type="text" [(ngModel)]="newAlumno.encargado" class="form-control" name="encargado" placeholder="Encargado" >
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" [(ngModel)]="newAlumno.direccion" class="form-control" name="adress" placeholder="Dirección" >
+                  </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal" (click)="CreateAlumno()">Guardar</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+<!-- MODAL PARA ACTUALIZAR UN USUARIO-->
+    <div class="modal" tabindex="-1" id="update">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title">Actualización de alumno</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <input type="text" [(ngModel)]="updateAlumno.nombre" class="form-control" name="name" placeholder="Nombres" >
+                  </div>
+                  <div class="form-group col-md-6">
+                    <input type="text" [(ngModel)]="updateAlumno.apellido" class="form-control" name="lastName" placeholder="Apellidos" >
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <input type="date" class="form-control" name="fecha" [(ngModel)]="updateAlumno.fecha_nacimiento" >
+                  </div>
+                  <div class="form-group col-md-6">
+                    <input type="number" [(ngModel)]="updateAlumno.telefono" class="form-control" name="phone" placeholder="Telefono" >
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <input type="text" [(ngModel)]="updateAlumno.id_alumno" class="form-control" name="id" placeholder="ID" required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <input type="text" [(ngModel)]="updateAlumno.encargado" class="form-control" name="encargado" placeholder="Encargado" >
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="text" [(ngModel)]="updateAlumno.direccion" class="form-control" name="adress" placeholder="Dirección" >
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="UpdateAlumno()">Actualizar</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+<!--MODAL PARA ADVERTIR AL USUARIO QUE VA A ELIMINA UNA MATERIA -->
+    <div class="modal" tabindex="-1" id="eliminar">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title">Eliminación de alumno</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body text-center">
+            <p>Usuario a eliminar</p>
+            <h4>{{updateAlumno.nombre + ' ' + updateAlumno.apellido}}</h4>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="DeleteAlumno()">Eliminar</button>
+            </div>
+        </div>
+        </div>
+    </div>
