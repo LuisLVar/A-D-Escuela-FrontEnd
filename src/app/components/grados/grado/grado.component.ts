@@ -87,6 +87,21 @@ export class GradoComponent implements OnInit {
     
   }
 
+  Delete_Grado(): void {
+    console.log(this.Grado_Operacional);
+    this.gradoService.deleteGrado(this.Grado_Operacional.grado)
+    .subscribe(
+      res => {
+        //TODO: aviso
+        console.log(res);
+      }, 
+      err => {
+        //TODO: aviso
+        console.log(err);
+      }
+    );
+    this.Establecer_Valores();
+  }
 
   Establecer_Valores(): void {
     this.newGrado.grado = 0;
