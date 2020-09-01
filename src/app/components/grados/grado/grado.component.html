@@ -30,3 +30,30 @@
       </tr>
     </tbody>
   </table>
+
+<!-- MODAL PARA LA CREACION DE GRADOS -->
+
+<div class="modal" tabindex="-1" id="nuevo">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Crear Grado</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                <label for="formGroupExampleInput">Nombre Grado</label>
+                <input type="text" class="form-control" name="nombre_grado" [(ngModel)]="newGrado.nombre_grado">
+                </div>
+            </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal" (click)="Create_Grado()">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>

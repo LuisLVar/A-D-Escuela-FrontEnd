@@ -43,5 +43,33 @@ export class GradoComponent implements OnInit {
     )
   }
 
+  Create_Grado (): void{
+    delete this.newGrado.grado;
+    if( this.newGrado.nombre_grado != ''){
+        this.gradoService.saveGrado(this.newGrado).subscribe(
+          res => {
+              //TODO: alerta 
+              console.log(res);
+          },
+          err => {
+              //TODO: alera
+              console.log(err);
+          }
+        )
+    }else{
+      //TODO: aviso 
+    }
+
+    this.Establecer_Valores();
+  }
+
+
+  Establecer_Valores(): void {
+    this.newGrado.grado = 0;
+    this.newGrado.nombre_grado = '';
+    this.Grado_Operacional.grado = -1;
+    this.Grado_Operacional.nombre_grado = '';
+
+  }
 
 }
