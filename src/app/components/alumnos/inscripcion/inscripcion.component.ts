@@ -22,17 +22,6 @@ export class InscripcionComponent implements OnInit {
     fecha_nacimiento:null,
     estado: ''
   };
-  alum: Alumno = {
-    alumno: 1,
-    nombre: 'Gerardo',
-    apellido: 'Chay',
-    direccion: '13 av B',
-    telefono: 59553462,
-    id_alumno: 'F5899DA',
-    encargado: 'MI MAMA',
-    fecha_nacimiento: new Date(),
-    estado: ''
-  };
   // Objeto Materia, Ayuda a eliminar y actualizar
   updateAlumno: Alumno= {
     alumno: 0,
@@ -46,7 +35,7 @@ export class InscripcionComponent implements OnInit {
     estado: ''
   };
   // Lista de objetos materia, Ayuda a listar las materias obtenidas del servidor
-  listMateria:any = [this.alum];
+  listMateria:any = [];
 
   constructor(private _alumno: AlumnosInscripService) { }
   ngOnInit(): void { }

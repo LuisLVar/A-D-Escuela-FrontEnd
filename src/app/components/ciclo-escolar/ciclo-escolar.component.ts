@@ -20,6 +20,7 @@ export class CicloEscolarComponent implements OnInit {
     ciclo: 0,
     anio: 0
   };
+
   // me sirve para actulizar y eliminar
   cicloOperacional: Ciclo = {
     ciclo: 0, anio: 0
@@ -57,7 +58,7 @@ export class CicloEscolarComponent implements OnInit {
         err => {
           console.log(err);
         }
-      );      
+      );
     }
     this.Establecer_Valores();
   }

@@ -24,7 +24,7 @@ export class MateriasComponent implements OnInit {
   listMateria:any = [];
 
   constructor(private _material:MateriaService) { }
-  ngOnInit(): void { this.Listar_Materias(); }
+  ngOnInit(): void {  }
   ObtenerMateria(item: Materia): void{ this.updateMateria = item; }
 
   Listar_Materias():void{
