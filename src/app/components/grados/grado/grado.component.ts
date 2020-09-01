@@ -63,6 +63,30 @@ export class GradoComponent implements OnInit {
     this.Establecer_Valores();
   }
 
+  Obtener_Item(item: Grado): void{
+    this.Grado_Operacional = item;
+  }
+
+  Update_Grado(): void{
+
+    const id = this.Grado_Operacional.grado;
+    delete this.Grado_Operacional.grado;
+    this.gradoService.updateGrado(id, this.Grado_Operacional)
+    .subscribe(
+      res => {
+        //TODO: aviso
+        console.log(res);
+      },
+      err => {
+        //TODO: aviso
+        console.log(err);
+      }
+    );
+
+    this.Establecer_Valores();
+    
+  }
+
 
   Establecer_Valores(): void {
     this.newGrado.grado = 0;
