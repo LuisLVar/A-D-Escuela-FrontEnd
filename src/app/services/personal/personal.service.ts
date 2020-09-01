@@ -8,5 +8,15 @@ import {personal} from '../../models/personal';
 })
 export class PersonalService {
 
-  constructor() { }
+  //Variable para la dirección IP del host
+  API_URI = 'direccion';
+
+  constructor(private http: HttpClient) { }
+
+  getPersonal = () =>  this.http.get(`${this.API_URI}/personal`);
+  getPersona = (id: string) => this.http.get(`${this.API_URI}/personal/${id}`);
+  savePersonal = (personal:personal ) => this.http.post(`${this.API_URI}/personal`,personal);
+  deletePersonal = (id: number|string) => this.http.delete(`${this.API_URI}/personal/${id}`);
+  updatePersonal= (id:number|string, updatedPersonal: personal): Observable<any> => this.http.put(`${this.API_URI}/personal/${id}`,updatedPersonal);
+
 }
