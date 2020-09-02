@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AsigMateriaService } from '../../services/asigMaterias/asig-materia.service'
-
+import { GradoService } from '../../services/grados/grado.service'
 
 @Component({
   selector: 'app-asig-materia',
@@ -9,7 +9,7 @@ import { AsigMateriaService } from '../../services/asigMaterias/asig-materia.ser
 })
 export class AsigMateriaComponent implements OnInit {
 
-  constructor(private _asig:AsigMateriaComponent) { }
+  constructor(private _asig:AsigMateriaService,private _grado:GradoService) { }
 
   ngOnInit(): void {
   }
