@@ -12,11 +12,7 @@ export class GradoComponent implements OnInit {
 
   constructor(private gradoService: GradoService) { }
 
-  public listaGrado: any = [
-    {grado: 1, nombre_grado: 'Primero'},
-    {grado: 2, nombre_grado: 'Segundo'},
-    {grado: 2, nombre_grado: 'Tercero'},
-  ];
+  public listaGrado: any = [];
 
   newGrado : Grado = {
     grado: 0,
@@ -30,12 +26,14 @@ export class GradoComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.Listar_Grados();
   }
 
   Listar_Grados(): void {
     this.gradoService.getGrados().subscribe(
       res => {
         this.listaGrado = res;
+        console.log(res);
       },
       err => {
         console.log(err);
@@ -44,23 +42,24 @@ export class GradoComponent implements OnInit {
   }
 
   Create_Grado (): void{
-    delete this.newGrado.grado;
-    if( this.newGrado.nombre_grado != ''){
-        this.gradoService.saveGrado(this.newGrado).subscribe(
-          res => {
-              //TODO: alerta 
-              console.log(res);
-          },
-          err => {
-              //TODO: alera
-              console.log(err);
-          }
-        )
-    }else{
-      //TODO: aviso 
-    }
+    
+    const nuevo = {nombre: this.newGrado.nombre_grado};
 
-    this.Establecer_Valores();
+    if(nuevo.nombre != ''){
+      this.gradoService.saveGrado(nuevo).subscribe(
+        res => {
+            //TODO: alerta 
+            this.Listar_Grados();
+            this.Establecer_Valores();
+        },
+        err => {
+            //TODO: alera
+            console.log(err);
+        }
+      )
+    }else{
+      //TODO: aviso
+    }
   }
 
   Obtener_Item(item: Grado): void{
@@ -69,22 +68,21 @@ export class GradoComponent implements OnInit {
 
   Update_Grado(): void{
 
-    const id = this.Grado_Operacional.grado;
-    delete this.Grado_Operacional.grado;
-    this.gradoService.updateGrado(id, this.Grado_Operacional)
+    const nuevo = {grado: this.Grado_Operacional.grado, nombre: this.Grado_Operacional.nombre_grado};
+
+    this.gradoService.updateGrado(nuevo)
     .subscribe(
       res => {
         //TODO: aviso
+        this.Listar_Grados();
+        this.Establecer_Valores();
         console.log(res);
       },
       err => {
         //TODO: aviso
         console.log(err);
       }
-    );
-
-    this.Establecer_Valores();
-    
+    ); 
   }
 
   Delete_Grado(): void {
@@ -93,6 +91,8 @@ export class GradoComponent implements OnInit {
     .subscribe(
       res => {
         //TODO: aviso
+        this.Listar_Grados();
+        this.Establecer_Valores();
         console.log(res);
       }, 
       err => {
@@ -100,7 +100,6 @@ export class GradoComponent implements OnInit {
         console.log(err);
       }
     );
-    this.Establecer_Valores();
   }
 
   Establecer_Valores(): void {
