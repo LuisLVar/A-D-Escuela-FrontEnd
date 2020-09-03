@@ -1,12 +1,16 @@
 import { TestBed } from '@angular/core/testing';
-
 import { AsigMateriaService } from './asig-materia.service';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('AsigMateriaService', () => {
   let service: AsigMateriaService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [
+        HttpClientTestingModule
+      ]
+    });
     service = TestBed.inject(AsigMateriaService);
   });
 
