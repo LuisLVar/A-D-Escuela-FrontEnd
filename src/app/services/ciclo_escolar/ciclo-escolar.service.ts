@@ -11,16 +11,16 @@ import { Observable } from 'rxjs';
 export class CicloEscolarService {
 
   
-  API_URI = 'http://3.20.3.133:3005/api';
+  API_URI = 'http://3.20.3.133:3010/api';
 
   constructor(private http: HttpClient) { }
 
   getCiclos(){
-    return this.http.get(`${this.API_URI}/ciclo`);
+    return this.http.get(`${this.API_URI}/ciclos`);
   }
 
   getCiclo(id: string){
-    return this.http.get(`${this.API_URI}/ciclo/${id}`);
+    return this.http.get(`${this.API_URI}/ciclos/${id}`);
   }
 
   saveCiclo(ciclo: Ciclo){
