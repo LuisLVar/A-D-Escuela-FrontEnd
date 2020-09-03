@@ -17,6 +17,7 @@ import { InscripcionComponent } from './components/alumnos/inscripcion/inscripci
 import {CicloEscolarService} from './services/ciclo_escolar/ciclo-escolar.service';
 import { LoginComponent } from './components/login/login.component';
 import { SeccionesComponent } from './components/secciones/secciones.component';
+import { PersonalComponent } from './components/personal/personal.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SeccionesComponent } from './components/secciones/secciones.component';
     MateriasComponent,
     PortadaComponent,
     LoginComponent,
-    SeccionesComponent
+    SeccionesComponent,
+    PersonalComponent
   ],
   imports: [
     BrowserModule,
