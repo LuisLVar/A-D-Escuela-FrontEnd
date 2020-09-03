@@ -23,7 +23,7 @@ export class CicloEscolarComponent implements OnInit {
 
   // me sirve para actulizar y eliminar
   cicloOperacional: Ciclo = {
-    ciclo: 0, anio: 0
+    ciclo: -1, anio: 0
   };
 
   ngOnInit(): void {
@@ -95,7 +95,7 @@ export class CicloEscolarComponent implements OnInit {
     this.newCiclo.anio = 0;
     this.newCiclo.ciclo = 0;
     this.cicloOperacional.anio = 0;
-    this.cicloOperacional.ciclo = 0;
+    this.cicloOperacional.ciclo = -1;
   }
 
 
