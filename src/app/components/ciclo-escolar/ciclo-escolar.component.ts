@@ -27,6 +27,7 @@ export class CicloEscolarComponent implements OnInit {
   };
 
   ngOnInit(): void {
+    this.Listar_Cilos();
   }
 
 
@@ -39,7 +40,9 @@ export class CicloEscolarComponent implements OnInit {
         res => {
           this.listaCiclo = res;
         },
-        err => console.log(err)
+        err => {
+          console.log(err);
+        }
       );
   }
 
@@ -54,9 +57,11 @@ export class CicloEscolarComponent implements OnInit {
       .subscribe(
         res => {
             console.log(res);
+            this.Listar_Cilos();
         },
         err => {
           console.log(err);
+          
         }
       );
     }
@@ -68,6 +73,7 @@ export class CicloEscolarComponent implements OnInit {
     .subscribe(
       res => {
         console.log(res);
+        this.Listar_Cilos();
       },
       err => {
         console.log(err);
@@ -77,18 +83,18 @@ export class CicloEscolarComponent implements OnInit {
   }
 
   Update_Game(): void{
-    const id = this.cicloOperacional.ciclo
-    delete this.cicloOperacional.ciclo;
-    this.cicloService.updateCiclo(id, this.cicloOperacional)
+    this.cicloService.updateCiclo(this.cicloOperacional)
     .subscribe(
       res => {
         console.log(res);
+        this.Listar_Cilos();
       },
       err => {
         console.log(err);
       }
     );
     this.Establecer_Valores();
+    this.Listar_Cilos();
   }
 
   Establecer_Valores(): void{

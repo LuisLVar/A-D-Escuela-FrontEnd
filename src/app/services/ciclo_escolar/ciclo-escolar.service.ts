@@ -11,12 +11,12 @@ import { Observable } from 'rxjs';
 export class CicloEscolarService {
 
   
-  API_URI = 'http://3.20.3.133:3005/api';
+  API_URI = 'http://3.20.3.133:3010/api/ciclos';
 
   constructor(private http: HttpClient) { }
 
   getCiclos(){
-    return this.http.get(`${this.API_URI}/ciclo`);
+    return this.http.get(`${this.API_URI}`);
   }
 
   getCiclo(id: string){
@@ -24,15 +24,15 @@ export class CicloEscolarService {
   }
 
   saveCiclo(ciclo: Ciclo){
-    return this.http.post(`${this.API_URI}/ciclo`,ciclo);
+    return this.http.post(`${this.API_URI}`,ciclo);
   }
 
   deleteCiclo(id: number | string){
-    return this.http.delete(`${this.API_URI}/ciclo/${id}`);
+    return this.http.delete(`${this.API_URI}/${id}`);
   }
 
-  updateCiclo(id:number, updatedCiclo: Ciclo): Observable<Ciclo> {
-    return this.http.put(`${this.API_URI}/ciclo/${id}`,updatedCiclo);
+  updateCiclo(updatedCiclo: Ciclo): Observable<Ciclo> {
+    return this.http.put(`${this.API_URI}`,updatedCiclo);
   }
 
 }
