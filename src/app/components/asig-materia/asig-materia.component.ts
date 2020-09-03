@@ -14,7 +14,7 @@ export class AsigMateriaComponent implements OnInit {
 
   materias:any[];
   grados:any[];
-  datosAsig: AsigMateria;
+  datosAsig: AsigMateria={materia:0, grado: 0};
   gradito:Grado = {grado:0, nombre_grado:''}
   materita:Materia = {materia:0, contenido:'', nombre: ''}
 
