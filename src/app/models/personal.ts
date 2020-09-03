@@ -4,10 +4,9 @@ export interface personal{
    apellido:string,
    direccion?:string,
    telefono?:number,
-   id_personal?:number,
-   estado?:string,
-   escuela_escuela: number,
-   tipo_personal_tipo:number,
+   estado?:number,
+   personal_escuela: number,
+   personal_tipo_personal:number,
    usuario: string,
-   password: string 
+   contrasenia: string 
   }
