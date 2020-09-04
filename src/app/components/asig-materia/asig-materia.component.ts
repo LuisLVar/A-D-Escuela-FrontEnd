@@ -20,7 +20,7 @@ export class AsigMateriaComponent implements OnInit {
 
   constructor(private _asig:AsigMateriaService,private _grado:GradoService) { }
   ngOnInit(): void {}
-  ObtenerAsig(materia:Materia, grado:Grado){ this.datosAsig = {materia:materia.materia, grado: grado.grado} }
+  ObtenerAsig(materia:number, grado:number){ this.datosAsig = {materia:materia,grado: grado} }
 
   deleteAsig(){
     this._asig.deleteAsigMateria(this.datosAsig.grado)
@@ -34,7 +34,10 @@ export class AsigMateriaComponent implements OnInit {
     );
   }
 
-  CreateAsig(){
+  CreateAsig(){}
 
+  Establecer_Valores(){
+    this.datosAsig.materia=0;
+    this.datosAsig.grado=0;
   }
 }

@@ -1,8 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AsigMateriaComponent } from './asig-materia.component';
-import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
-import { AsigMateria } from '../../models/asig_materia'
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('AsigMateriaComponent', () => {
   let component: AsigMateriaComponent;
@@ -49,6 +48,24 @@ describe('AsigMateriaComponent', () => {
       });
     });
 
+  });
+
+  describe('Testing a funciones', ()=>{
+    describe('Prueba a funcion ObtenerAsig()', ()=>{
+      it('Debe cambiar los valores de datosAsig a grado=50 y materia=100', ()=>{
+        component.ObtenerAsig(100,50);
+        expect(component.datosAsig.grado).toEqual(50);
+        expect(component.datosAsig.materia).toEqual(100);
+      });
+    });
+
+    describe('Prueba a funcion Establecer_Valores', ()=> {
+      it('variable newCiclo debe tener grado=0 y materia=0', ()=>{
+        component.Establecer_Valores();
+        expect(component.datosAsig.materia).toEqual(0);
+        expect(component.datosAsig.grado).toEqual(0);
+      });
+    });
   });
 
 });
