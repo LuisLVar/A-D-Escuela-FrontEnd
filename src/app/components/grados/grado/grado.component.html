@@ -1,0 +1,114 @@
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#nuevo">
+    <i class="fas fa-plus-circle fa-fw"></i>&nbsp; Nuevo Grado
+</button>
+<br><br>
+<!--Tabla para mostrar los grados actuales-->
+
+<table class="table table-sm table-responsive-sm table-striped table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre Grado</th>
+        <th scope="col">Actualizar</th>
+        <th scope="col">Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let item of listaGrado; index as i">
+        <th scope="row"><span class="badge badge-primary badge-pill">{{item.grado}}</span></th>
+        <td>{{item.nombre_grado}}</td>
+        <td>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#update" (click)="Obtener_Item(item)" >
+              <i class="fas fa-pencil-alt"></i>
+            </button>
+        </td>
+        <td>
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#eliminar" (click)="Obtener_Item(item)">
+              <i class="far fa-trash-alt"></i>
+            </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+<!-- MODAL PARA LA CREACION DE GRADOS -->
+
+<div class="modal" tabindex="-1" id="nuevo">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Crear Grado</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                <label for="formGroupExampleInput">Nombre Grado</label>
+                <input type="text" class="form-control" name="nombre_grado" [(ngModel)]="newGrado.nombre_grado">
+                </div>
+            </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal" (click)="Create_Grado()">Guardar</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<!--MODAL PARA PODER EDITAR EL GRADO-->
+
+<div class="modal" tabindex="-1" id="update">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edicion de Grado</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                <label for="formGroupExampleInput">Nombre Grado</label>
+                <input type="text" class="form-control" name="nombre_grado" [(ngModel)]="Grado_Operacional.nombre_grado">
+                </div>
+            </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal" (click)="Update_Grado()">Guardar Cambios</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--MODAL PARA PODER ELIMINAR EL GRADO-->
+
+<div class="modal" tabindex="-1" id="eliminar">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Eliminacion de Grados</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form>
+              <div class="form-group">
+              <label for="formGroupExampleInput">Nombre Grado a eliminar</label>
+              <input type="text" class="form-control" name="nombre_grado" [(ngModel)]="Grado_Operacional.nombre_grado">
+              </div>
+          </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="Delete_Grado()">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
