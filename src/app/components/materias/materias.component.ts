@@ -24,7 +24,7 @@ export class MateriasComponent implements OnInit {
   listMateria:any = [];
 
   constructor(private _material:MateriaService) { }
-  ngOnInit(): void {  }
+  ngOnInit(): void { this.Listar_Materias() }
   ObtenerMateria(item: Materia): void{ this.updateMateria = item; }
 
   Listar_Materias():void{
@@ -39,17 +39,16 @@ export class MateriasComponent implements OnInit {
 
   CreateMateria():void {
     delete this.newMateria.materia;
-    this._material.saveMateria(this.newMateria)
-      .subscribe(
-        res => {
-          console.log(res);
-        },
-        err => {
+    console.log(this.newMateria)
+    this._material.saveMateria(this.newMateria).subscribe(
+      res => {
+        console.log(res);
+        this.Establecer_Valores();
+      },
+      err => {
           console.log(err);
-        }
-      );
-
-    this.Establecer_Valores();
+      }
+    );
   }
 
   Establecer_Valores(): void{
@@ -62,19 +61,15 @@ export class MateriasComponent implements OnInit {
   }
 
   UpdateMaterial():void {
-    const id = this.updateMateria.materia
-    delete this.updateMateria.materia;
-    this._material.updateMateria(id, this.updateMateria)
-    .subscribe(
+    this._material.updateMateria(this.updateMateria).subscribe(
       res => {
         console.log(res);
+        this.Establecer_Valores();
       },
       err => {
         console.log(err);
       }
     );
-
-    this.Establecer_Valores();
   }
 
   DeleteMateria(): void{
@@ -87,7 +82,6 @@ export class MateriasComponent implements OnInit {
         console.log(err);
       }
     );
-
     this.Establecer_Valores();
   }
 }
