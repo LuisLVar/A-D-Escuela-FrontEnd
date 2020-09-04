@@ -5,7 +5,7 @@ export interface personal{
    direccion?:string,
    telefono?:string,
    estado?:number,
-   escuela:number,
+   escuela?:number,
    personal_escuela: number,
    tipo_personal:number,
    usuario: string,
