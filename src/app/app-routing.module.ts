@@ -5,11 +5,8 @@ import {CicloEscolarComponent} from './components/ciclo-escolar/ciclo-escolar.co
 import { MateriasComponent } from './components/materias/materias.component'
 import { InscripcionComponent } from './components/alumnos/inscripcion/inscripcion.component'
 import { PortadaComponent } from './components/portada/portada.component'
-<<<<<<< HEAD
 import { GradoComponent } from './components/grados/grado/grado.component';
-=======
 import { AsigMateriaComponent } from './components/asig-materia/asig-materia.component'
->>>>>>> feature/asig_materias
 
 const routes: Routes = [
   {
@@ -34,13 +31,12 @@ const routes: Routes = [
     component: InscripcionComponent
   },
   {
-<<<<<<< HEAD
     path: 'grados',
     component: GradoComponent
-=======
+  },
+  {
     path: 'asigmateria',
     component: AsigMateriaComponent
->>>>>>> feature/asig_materias
   }
 
 ];

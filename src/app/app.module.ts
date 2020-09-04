@@ -17,11 +17,8 @@ import { InscripcionComponent } from './components/alumnos/inscripcion/inscripci
 import {CicloEscolarService} from './services/ciclo_escolar/ciclo-escolar.service';
 import { LoginComponent } from './components/login/login.component';
 import { SeccionesComponent } from './components/secciones/secciones.component';
-<<<<<<< HEAD
 import { GradoComponent } from './components/grados/grado/grado.component';
-=======
 import { AsigMateriaComponent } from './components/asig-materia/asig-materia.component';
->>>>>>> feature/asig_materias
 
 @NgModule({
   declarations: [
@@ -36,11 +33,8 @@ import { AsigMateriaComponent } from './components/asig-materia/asig-materia.com
     PortadaComponent,
     LoginComponent,
     SeccionesComponent,
-<<<<<<< HEAD
-    GradoComponent
-=======
+    GradoComponent,
     AsigMateriaComponent
->>>>>>> feature/asig_materias
   ],
   imports: [
     BrowserModule,
