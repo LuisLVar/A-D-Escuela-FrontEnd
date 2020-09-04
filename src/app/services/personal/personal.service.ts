@@ -17,6 +17,6 @@ export class PersonalService {
   getPersona = (id: string) => this.http.get(`${this.API_URI}/personal/${id}`);
   savePersonal = (personal:personal ) => this.http.post(`${this.API_URI}/personal`,personal);
   deletePersonal = (id: number|string) => this.http.delete(`${this.API_URI}/personal/${id}`);
-  updatePersonal= (id:number|string, updatedPersonal: personal): Observable<any> => this.http.put(`${this.API_URI}/personal/${id}`,updatedPersonal);
+  updatePersonal= (updatedPersonal: personal)=> this.http.put(`${this.API_URI}/personal/`,updatedPersonal);
 
 }

@@ -2,13 +2,19 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PersonalComponent } from './personal.component';
 
-describe('PersonalComponent', () => {
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { personal } from '../../models/personal';
+
+fdescribe('PersonalComponent', () => {
   let component: PersonalComponent;
   let fixture: ComponentFixture<PersonalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PersonalComponent ]
+      declarations: [ PersonalComponent ],
+      imports: [
+        HttpClientTestingModule
+      ]
     })
     .compileComponents();
   }));
