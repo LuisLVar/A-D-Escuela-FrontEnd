@@ -1,8 +1,8 @@
 export interface Seccion{
-    seccion? : number,//
+    seccion? : number,
     nombre? : string,
-    estado? : string,
-    seccion_grado?: number,
-    seccion_personal?:number,
-    seccion_ciclo?: number
+    estado? : number,
+    grado?: number,
+    personal?:number,
+    ciclo?: number
   }

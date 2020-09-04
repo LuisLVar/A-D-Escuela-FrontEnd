@@ -48,21 +48,21 @@
                       </div>
                       <div class="form-group">
                         <label for="formGroupExampleInput">Personal</label>
-                        <select  id="sel" (change)="getPersonal($event.target.value)">
+                        <select  id="sel" (change)="getPersonalN($event.target.value)">
                           <option *ngFor = "let item of resultadoPersonal" value="{{item.personal}}" >{{item.nombre}}  {{item.apellido}}
                           </option>
                        </select>
                       </div>
                       <div class="form-group">
                         <label for="formGroupExampleInput">Grado</label>
-                        <select  id="sel" (change)="getGrado($event.target.value)">
+                        <select  id="sel" (change)="getGradoN($event.target.value)">
                           <option *ngFor = "let item of resultadoGrado" value="{{item.grado}}" >{{item.nombre_grado}} 
                           </option>
                        </select>
                       </div>
                       <div class="form-group">
                         <label for="formGroupExampleInput">Ciclo</label>
-                        <select  id="sel" (change)="getCiclo($event.target.value)">
+                        <select  id="sel" (change)="getCicloN($event.target.value)">
                           <option *ngFor = "let item of resultadoCiclo" value="{{item.ciclo}}" >{{item.anio}} 
                           </option>
                        </select>
@@ -134,7 +134,7 @@
               <div class="modal-body text-center">
               <h4>Seccion a eliminar</h4>
               <p>{{updateSeccion.nombre}}</p>
-              <p>Grado: {{updateSeccion.seccion_grado}}</p>
+              <p>Grado: {{updateSeccion.grado}}</p>
               </div>
               <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="DeleteSeccion()">Eliminar</button>
