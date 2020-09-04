@@ -39,9 +39,6 @@ export class SeccionesComponent implements OnInit {
 
   listaConsulta:any=[];
   listSecciones: any = [];
-  /*listSecciones:any = [{seccion:1,nombre:'1A',estado:'1',grado:1,personal:1, ciclo:2019},
-                        {seccion:2,nombre:'1B',estado:'1',grado:1,personal:1, ciclo:2019}];*/
-  //resultadoCiclo: any =[{ciclo:1,anio:2019},{ciclo:2,anio:2020}]
   resultadoCiclo: any = [];
   resultadoPersonal: any = [{ personal: 1, nombre: "Juan", apellido: "Godinez" }, { personal: 2, nombre: "Marta", apellido: "de León" }];
   resultadoGrado: any = [{ grado: 1, nombre_grado: "Primero Primaria" }, { grado: 2, nombre_grado: "Segundo Primaria" }]
