@@ -19,6 +19,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SeccionesComponent } from './components/secciones/secciones.component';
 import { GradoComponent } from './components/grados/grado/grado.component';
 import { AsigMateriaComponent } from './components/asig-materia/asig-materia.component';
+import { PersonalComponent } from './components/personal/personal.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AsigMateriaComponent } from './components/asig-materia/asig-materia.com
     LoginComponent,
     SeccionesComponent,
     GradoComponent,
-    AsigMateriaComponent
+    AsigMateriaComponent,
+    PersonalComponent
   ],
   imports: [
     BrowserModule,

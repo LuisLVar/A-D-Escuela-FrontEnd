@@ -7,7 +7,7 @@
         <tr>
           <th scope="col">#</th>
           <th scope="col">Nombre</th>
-          <th scope="col">Cliclo</th>
+          <th scope="col">Ciclo</th>
           <th scope="col">Actualizar</th>
           <th scope="col">Eliminar</th>
         </tr>
@@ -16,7 +16,7 @@
         <tr *ngFor = "let item of listSecciones; index as i;">
           <th scope="row"><span class="badge badge-primary badge-pill">{{i+1}}</span></th>
           <td>{{item.nombre}}</td>
-          <td>{{item.ciclo}}</td>
+          <td>{{item.seccion_ciclo}}</td>
           <td>
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#update" (click)="ObtenerSeccion(item)">
                 <i class="fas fa-pencil-alt"></i>
@@ -48,22 +48,22 @@
                       </div>
                       <div class="form-group">
                         <label for="formGroupExampleInput">Personal</label>
-                        <select  id="sel" (change)="getPersonal($event.target.value)">
+                        <select  id="sel" (change)="getPersonalN($event.target.value)">
                           <option *ngFor = "let item of resultadoPersonal" value="{{item.personal}}" >{{item.nombre}}  {{item.apellido}}
                           </option>
                        </select>
                       </div>
                       <div class="form-group">
                         <label for="formGroupExampleInput">Grado</label>
-                        <select  id="sel" (change)="getGrado($event.target.value)">
-                          <option *ngFor = "let item of resultadoGrado" value="{{item.grado}}" >{{item.nombre}} 
+                        <select  id="sel" (change)="getGradoN($event.target.value)">
+                          <option *ngFor = "let item of resultadoGrado" value="{{item.grado}}" >{{item.nombre_grado}} 
                           </option>
                        </select>
                       </div>
                       <div class="form-group">
                         <label for="formGroupExampleInput">Ciclo</label>
-                        <select  id="sel" (change)="getCiclo($event.target.value)">
-                          <option *ngFor = "let item of resultadoCiclo" value="{{item.ciclo}}" >{{item.year}} 
+                        <select  id="sel" (change)="getCicloN($event.target.value)">
+                          <option *ngFor = "let item of resultadoCiclo" value="{{item.ciclo}}" >{{item.anio}} 
                           </option>
                        </select>
                       </div>
@@ -102,14 +102,14 @@
                       <div class="form-group">
                         <label for="formGroupExampleInput">Grado</label>
                         <select  id="sel" (change)="getGrado($event.target.value)">
-                          <option *ngFor = "let item of resultadoGrado" value="{{item.grado}}" >{{item.nombre}} 
+                          <option *ngFor = "let item of resultadoGrado" value="{{item.grado}}" >{{item.nombre_grado}} 
                           </option>
                        </select>
                       </div>
                       <div class="form-group">
                         <label for="formGroupExampleInput">Ciclo</label>
                         <select  id="sel" (change)="getCiclo($event.target.value)">
-                          <option *ngFor = "let item of resultadoCiclo" value="{{item.ciclo}}" >{{item.year}} 
+                          <option *ngFor = "let item of resultadoCiclo" value="{{item.ciclo}}" >{{item.anio}} 
                           </option>
                        </select>
                       </div>

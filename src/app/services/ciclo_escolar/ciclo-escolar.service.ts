@@ -20,7 +20,7 @@ export class CicloEscolarService {
   }
 
   getCiclo(id: string){
-    return this.http.get(`${this.API_URI}/ciclo/${id}`);
+    return this.http.get(`${this.API_URI}/ciclos/${id}`);
   }
 
   saveCiclo(ciclo: Ciclo){

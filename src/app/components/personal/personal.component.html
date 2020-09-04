@@ -1,0 +1,141 @@
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#nuevo">
+    <i class="fas fa-plus-circle fa-fw"></i>&nbsp; Nuevo Docente
+  </button>
+  <br><br>
+  <table class="table table-sm table-responsive-sm table-striped table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Actualizar</th>
+          <th scope="col">Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let item of listPersonal; index as i;">
+          <th scope="row"><span class="badge badge-primary badge-pill">{{i+1}}</span></th>
+          <td>{{item.nombre}}</td>
+          <td>{{item.apellido}}</td>
+          <td>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#update" (click)="ObtenerPersonal(item)">
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+          </td>
+          <td>
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#eliminar" (click)="ObtenerPersonal(item)">
+                <i class="far fa-trash-alt"></i>
+              </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  <!--MODAL PARA CREAR UNA NUEVA SECCION-->
+  <div class="modal" tabindex="-1" id="nuevo">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title">Nuevo Personal</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                  <input type="text" [(ngModel)]="newPersonal.nombre" class="form-control" name="name" placeholder="Ingrese el nombre del nuevo personal..." required>
+                </div>
+                <div class="form-group">
+                  <input type="text" [(ngModel)]="newPersonal.apellido" class="form-control" name="name" placeholder="Ingrese el apellido..." required>
+                </div>
+                <div class="form-group">
+                  <input type="text" [(ngModel)]="newPersonal.direccion" class="form-control" name="name" placeholder="Ingrese direccion..." required>
+                </div>
+                <div class="form-group">
+                  <input type="text" [(ngModel)]="newPersonal.telefono" class="form-control" name="name" placeholder="Ingrese telefono..." required>
+                </div>
+                <div class="form-group">
+                  <input type="text" [(ngModel)]="newPersonal.usuario" class="form-control" name="name" placeholder="Ingrese nuevo nombre de usuario.." required>
+                </div>
+                <div class="form-group">
+                  <input type="text" [(ngModel)]="newPersonal.contrasenia" class="form-control" name="name" placeholder="Ingrese nueva contraseña..." required>
+                </div>
+                
+            </form>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal" (click)="CreatePersonal()">Guardar</button>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+<!-- MODAL PARA ACTUALIZAR UN DOCENTE-->
+<div class="modal" tabindex="-1" id="update">
+  <div class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header">
+      <h5 class="modal-title">Actualización de Personal</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+      <div class="modal-body">
+          <form>
+              <div class="form-group">
+                <label for="formGroupExampleInput">Nombre</label>
+                <input type="text" class="form-control" name="nameUpdate" [(ngModel)]="updatePersonal.nombre" placeholder="Ingrese el nombre..." required>
+              </div>
+              <div class="form-group">
+                <label for="formGroupExampleInput">Apellido</label>
+                <input type="text" [(ngModel)]="updatePersonal.apellido" class="form-control" name="name" placeholder="Ingrese el apellido..." required>
+              </div>
+              <div class="form-group">
+                <label for="formGroupExampleInput">Direccion</label>
+                <input type="text" [(ngModel)]="updatePersonal.direccion" class="form-control" name="name" placeholder="Ingrese direccion..." required>
+              </div>
+              <div class="form-group">
+                <label for="formGroupExampleInput">Telefono</label>
+                <input type="text" [(ngModel)]="updatePersonal.telefono" class="form-control" name="name" placeholder="Ingrese telefono..." required>
+              </div>
+              <div class="form-group">
+                <label for="formGroupExampleInput">Usuario</label>
+                <input type="text" [(ngModel)]="updatePersonal.usuario" class="form-control" name="name" placeholder="Ingrese nuevo nombre de usuario.." required>
+              </div>
+              <div class="form-group">
+                <label for="formGroupExampleInput">Contraseña</label>
+                <input type="text" [(ngModel)]="updatePersonal.contrasenia" class="form-control" name="name" placeholder="Ingrese nueva contraseña..." required>
+              </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="UpdatePersonal()">Actualizar</button>
+      </div>
+  </div>
+  </div>
+</div>
+
+ <!--MODAL PARA ADVERTIR AL USUARIO QUE VA A ELIMINA UNA PERSONA -->
+ <div class="modal" tabindex="-1" id="eliminar">
+  <div class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header">
+      <h5 class="modal-title">Eliminación de Personal</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+      <div class="modal-body text-center">
+      <h4>Personal a eliminar</h4>
+      <p>{{updatePersonal.nombre}}</p>
+      <p>{{updatePersonal.apellido}}</p>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="DeletePersonal()">Eliminar</button>
+      </div>
+  </div>
+  </div>
+</div>
