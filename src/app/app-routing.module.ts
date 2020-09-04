@@ -5,6 +5,7 @@ import {CicloEscolarComponent} from './components/ciclo-escolar/ciclo-escolar.co
 import { MateriasComponent } from './components/materias/materias.component'
 import { InscripcionComponent } from './components/alumnos/inscripcion/inscripcion.component'
 import { PortadaComponent } from './components/portada/portada.component'
+import { AsigMateriaComponent } from './components/asig-materia/asig-materia.component'
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'inscripción',
     component: InscripcionComponent
+  },
+  {
+    path: 'asigmateria',
+    component: AsigMateriaComponent
   }
 
 ];
