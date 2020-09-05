@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Materia } from '../../models/materia'
-import { MateriaService } from '../../services/materias/materia.service'
+import { MateriaService } from '../../services/materias/materia.service';
+
+
 @Component({
   selector: 'app-materias',
   templateUrl: './materias.component.html',
@@ -43,6 +45,7 @@ export class MateriasComponent implements OnInit {
     this._material.saveMateria(this.newMateria).subscribe(
       res => {
         console.log(res);
+        this.Listar_Materias();
         this.Establecer_Valores();
       },
       err => {
@@ -64,6 +67,7 @@ export class MateriasComponent implements OnInit {
     this._material.updateMateria(this.updateMateria).subscribe(
       res => {
         console.log(res);
+        this.Listar_Materias();
         this.Establecer_Valores();
       },
       err => {
@@ -77,6 +81,7 @@ export class MateriasComponent implements OnInit {
     .subscribe(
       res => {
         console.log(res);
+        this.Listar_Materias();
       },
       err => {
         console.log(err);

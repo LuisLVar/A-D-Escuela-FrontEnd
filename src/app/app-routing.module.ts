@@ -11,45 +11,15 @@ import { SeccionesComponent } from './components/secciones/secciones.component';
 import { PersonalComponent } from './components/personal/personal.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: '/portada',
-    pathMatch: 'full'
-  },
-  {
-    path: 'portada',
-    component: PortadaComponent
-  },
-  {
-    path: 'ciclos',
-    component: CicloEscolarComponent
-  },
-  {
-    path: 'materias',
-    component: MateriasComponent
-  },
-  {
-    path: 'inscripcion',
-    component: InscripcionComponent
-  },
-  {
-    path: 'grados',
-    component: GradoComponent
-  },
-  {
-    path: 'asigmateria',
-    component: AsigMateriaComponent
-  }
-  ,
-  {
-    path: 'secciones',
-    component: SeccionesComponent
-  }
-  ,
-  {
-    path: 'personal',
-    component: PersonalComponent
-  }
+  { path: '', redirectTo: '/portada', pathMatch: 'full' },
+  { path: 'portada', component: PortadaComponent },
+  { path: 'ciclos', component: CicloEscolarComponent },
+  { path: 'materias', component: MateriasComponent },
+  { path: 'inscripcion', component: InscripcionComponent },
+  { path: 'grados', component: GradoComponent },
+  { path: 'asigmateria', component: AsigMateriaComponent },
+  { path: 'secciones', component: SeccionesComponent },
+  { path: 'personal', component: PersonalComponent }
 
 ];
 

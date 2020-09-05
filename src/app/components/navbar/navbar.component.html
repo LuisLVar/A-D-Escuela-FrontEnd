@@ -7,19 +7,44 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#" routerLink="/portada" routerLinkActive="active">Home</a>
+          <a class="nav-link" href="#" routerLink="/portada" routerLinkActive="active">
+            <i class="fas fa-home icono"></i>Home
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" routerLink="/ciclos" routerLinkActive="active">Ciclos</a>
+          <a class="nav-link" href="#" routerLink="/ciclos" routerLinkActive="active">
+            <i class="fab fa-delicious icono"></i>Ciclos
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/inscripción" routerLinkActive="active">Inscripcion</a>
+          <a class="nav-link" routerLink="/inscripcion" routerLinkActive="active">
+            <i class="fas fa-users icono"></i>Alumnos
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-book icono"></i>Materias
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" routerLink="/materias">Listado</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" routerLink="/asigmateria">Asignar</a>
+          </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/materias" routerLinkActive="active">Materias</a>
+          <a class="nav-link" routerLink="/personal" routerLinkActive="active">
+            <i class="fas fa-male icono"></i>Docentes
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/asigmateria" routerLinkActive="active">AsigMater</a>
+          <a class="nav-link" routerLink="/secciones" routerLinkActive="active">
+            <i class="fas fa-puzzle-piece icono"></i>Secciones
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/grados" routerLinkActive="active">
+            <i class="fas fa-graduation-cap icono"></i>Grados
+          </a>
         </li>
       </ul>
     </div>

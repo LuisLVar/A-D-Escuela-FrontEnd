@@ -10,7 +10,9 @@
         <th scope="col">Apellido</th>
         <th scope="col">Dirección</th>
         <th scope="col">Telefono</th>
-        <th scope="col">ID</th>
+        <th scope="col">CUI</th>
+        <th scope="col">Nacionalidad</th>
+        <th scope="col">Código</th>
         <th scope="col">Encargado</th>
         <th scope="col">Fecha Nacimiento</th>
         <th scope="col"><i class="fas fa-ellipsis-v"></i></th>
@@ -23,7 +25,9 @@
         <td>{{item.apellido}}</td>
         <td>{{item.direccion}}</td>
         <td>{{item.telefono}}</td>
-        <td>{{item.id_alumno}}</td>
+        <td>{{item.cui}}</td>
+        <td>{{item.nacionalidad}}</td>
+        <td>{{item.codigo_personal}}</td>
         <td>{{item.encargado}}</td>
         <td>{{item.fecha_nacimiento | date:'mediumDate'}}</td>
         <td>
@@ -52,30 +56,47 @@
                 <form>
                   <div class="form-row">
                     <div class="form-group col-md-6">
-                      <input type="text" [(ngModel)]="newAlumno.nombre" class="form-control" name="name" placeholder="Nombres" required>
+                      <label for="nombre">Nombre</label>
+                      <input type="text" [(ngModel)]="newAlumno.nombre" class="form-control" name="name" required>
                     </div>
                     <div class="form-group col-md-6">
-                      <input type="text" [(ngModel)]="newAlumno.apellido" class="form-control" name="lastName" placeholder="Apellidos" required>
+                      <label for="apellidos">Apellidos</label>
+                      <input type="text" [(ngModel)]="newAlumno.apellido" class="form-control" name="lastName" required>
                     </div>
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md-6">
+                      <label for="fecha">Fecha Nacimiento</label>
                       <input type="date" class="form-control" name="fecha" [(ngModel)]="newAlumno.fecha_nacimiento" >
                     </div>
                     <div class="form-group col-md-6">
-                      <input type="number" [(ngModel)]="newAlumno.telefono" class="form-control" name="phone" placeholder="Telefono" >
+                      <label for="telefono">Telefono</label>
+                      <input type="number" [(ngModel)]="newAlumno.telefono" class="form-control" name="phone"  >
                     </div>
                   </div>
                   <div class="form-row">
                     <div class="form-group col-md-6">
-                      <input type="text" [(ngModel)]="newAlumno.id_alumno" class="form-control" name="id" placeholder="ID" required>
+                      <label for="codper">Código personal</label>
+                      <input type="text" [(ngModel)]="newAlumno.codigo_personal" class="form-control" name="id" required>
                     </div>
                     <div class="form-group col-md-6">
-                      <input type="text" [(ngModel)]="newAlumno.encargado" class="form-control" name="encargado" placeholder="Encargado" >
+                      <label for="nomen">Nombre Encargado</label>
+                      <input type="text" [(ngModel)]="newAlumno.encargado" class="form-control" name="encargado" >
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="cui">CUI</label>
+                      <input type="number" [(ngModel)]="newAlumno.cui" class="form-control" name="id" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="codper">Nacionalidad</label>
+                      <input type="text" [(ngModel)]="newAlumno.nacionalidad" class="form-control" name="nacionalidad" >
                     </div>
                   </div>
                   <div class="form-group">
-                    <input type="text" [(ngModel)]="newAlumno.direccion" class="form-control" name="adress" placeholder="Dirección" >
+                    <label for="direc">Dirección</label>
+                    <input type="text" [(ngModel)]="newAlumno.direccion" class="form-control" name="adress" >
                   </div>
                 </form>
             </div>
@@ -100,30 +121,38 @@
               <form>
                 <div class="form-row">
                   <div class="form-group col-md-6">
-                    <input type="text" [(ngModel)]="updateAlumno.nombre" class="form-control" name="name" placeholder="Nombres" >
+                    <input type="text" [(ngModel)]="updateAlumno.nombre" class="form-control" name="name" >
                   </div>
                   <div class="form-group col-md-6">
-                    <input type="text" [(ngModel)]="updateAlumno.apellido" class="form-control" name="lastName" placeholder="Apellidos" >
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <input type="date" class="form-control" name="fecha" [(ngModel)]="updateAlumno.fecha_nacimiento" >
-                  </div>
-                  <div class="form-group col-md-6">
-                    <input type="number" [(ngModel)]="updateAlumno.telefono" class="form-control" name="phone" placeholder="Telefono" >
+                    <input type="text" [(ngModel)]="updateAlumno.apellido" class="form-control" name="lastName" >
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
-                    <input type="text" [(ngModel)]="updateAlumno.id_alumno" class="form-control" name="id" placeholder="ID" required>
+                    <input type="text" class="form-control" name="fecha" [(ngModel)]="updateAlumno.fecha_nacimiento" placeholder="{{updateAlumno.fecha_nacimiento| date:'mediumDate'}}">
                   </div>
                   <div class="form-group col-md-6">
-                    <input type="text" [(ngModel)]="updateAlumno.encargado" class="form-control" name="encargado" placeholder="Encargado" >
+                    <input type="number" [(ngModel)]="updateAlumno.telefono" class="form-control" name="phone"  >
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <input type="text" [(ngModel)]="updateAlumno.codigo_personal" disabled class="form-control" name="id"  required >
+                  </div>
+                  <div class="form-group col-md-6">
+                    <input type="text" [(ngModel)]="updateAlumno.encargado" class="form-control" name="encargado"  >
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <input type="number" [(ngModel)]="updateAlumno.cui" class="form-control" disabled name="id"  required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <input type="text" [(ngModel)]="updateAlumno.nacionalidad" class="form-control"  name="nacionalidad"  >
                   </div>
                 </div>
                 <div class="form-group">
-                  <input type="text" [(ngModel)]="updateAlumno.direccion" class="form-control" name="adress" placeholder="Dirección" >
+                  <input type="text" [(ngModel)]="updateAlumno.direccion" class="form-control" name="adress"  >
                 </div>
               </form>
             </div>

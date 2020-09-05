@@ -17,10 +17,12 @@ export class InscripcionComponent implements OnInit {
     apellido: '',
     direccion: '',
     telefono: 0,
-    id_alumno: '',
+    cui: 0,
+    nacionalidad: '',
+    codigo_personal: '',
     encargado: '',
     fecha_nacimiento:null,
-    estado: ''
+    estado: 1
   };
   // Objeto Materia, Ayuda a eliminar y actualizar
   updateAlumno: Alumno= {
@@ -29,16 +31,18 @@ export class InscripcionComponent implements OnInit {
     apellido: '',
     direccion: '',
     telefono: 0,
-    id_alumno: '',
+    cui: 0,
+    nacionalidad: '',
+    codigo_personal: '',
     encargado: '',
     fecha_nacimiento:null,
-    estado: ''
+    estado: 1
   };
   // Lista de objetos materia, Ayuda a listar las materias obtenidas del servidor
   listMateria:any = [];
 
   constructor(private _alumno: AlumnosInscripService) { }
-  ngOnInit(): void { }
+  ngOnInit(): void { this.Listar_Alumnos(); }
   ObtenerAlumno(item: Alumno): void{ this.updateAlumno = item; }
 
   Listar_Alumnos():void{
@@ -57,6 +61,7 @@ export class InscripcionComponent implements OnInit {
       .subscribe(
         res => {
           console.log(res);
+          this.Listar_Alumnos();
         },
         err => {
           console.log(err);
@@ -72,20 +77,24 @@ export class InscripcionComponent implements OnInit {
     this.newAlumno.apellido='';
     this.newAlumno.direccion='';
     this.newAlumno.telefono=0;
-    this.newAlumno.id_alumno='';
+    this.newAlumno.cui=0;
+    this.newAlumno.nacionalidad='';
+    this.newAlumno.codigo_personal='';
     this.newAlumno.encargado='';
     this.newAlumno.fecha_nacimiento=null;
-    this.newAlumno.estado='';
+    this.newAlumno.estado=1;
 
     this.updateAlumno.alumno=0;
     this.updateAlumno.nombre='';
     this.updateAlumno.apellido='';
     this.updateAlumno.direccion='';
     this.updateAlumno.telefono=0;
-    this.updateAlumno.id_alumno='';
+    this.updateAlumno.cui=0;
+    this.updateAlumno.nacionalidad='';
+    this.updateAlumno.codigo_personal='';
     this.updateAlumno.encargado='';
     this.updateAlumno.fecha_nacimiento=null;
-    this.updateAlumno.estado='';
+    this.updateAlumno.estado=1;
   }
 
   UpdateAlumno():void {
@@ -95,6 +104,7 @@ export class InscripcionComponent implements OnInit {
     .subscribe(
       res => {
         console.log(res);
+        this.Listar_Alumnos();
       },
       err => {
         console.log(err);
@@ -109,6 +119,7 @@ export class InscripcionComponent implements OnInit {
     .subscribe(
       res => {
         console.log(res);
+        this.Listar_Alumnos();
       },
       err => {
         console.log(err);

@@ -30,7 +30,7 @@
         </tr>
       </tbody>
     </table>
-  
+
   <!--MODAL PARA CREAR UNA NUEVA SECCION-->
       <div class="modal" tabindex="-1" id="nuevo">
           <div class="modal-dialog">
@@ -48,22 +48,22 @@
                       </div>
                       <div class="form-group">
                         <label for="formGroupExampleInput">Personal</label>
-                        <select  id="sel" (change)="getPersonalN($event.target.value)">
+                        <select  id="sel" (change)="getPersonalN($event.target.value)" class="form-control">
                           <option *ngFor = "let item of resultadoPersonal" value="{{item.personal}}" >{{item.nombre}}  {{item.apellido}}
                           </option>
                        </select>
                       </div>
                       <div class="form-group">
                         <label for="formGroupExampleInput">Grado</label>
-                        <select  id="sel" (change)="getGradoN($event.target.value)">
-                          <option *ngFor = "let item of resultadoGrado" value="{{item.grado}}" >{{item.nombre_grado}} 
+                        <select  id="sel" (change)="getGradoN($event.target.value)" class="form-control">
+                          <option *ngFor = "let item of resultadoGrado" value="{{item.grado}}" >{{item.nombre_grado}}
                           </option>
                        </select>
                       </div>
                       <div class="form-group">
                         <label for="formGroupExampleInput">Ciclo</label>
-                        <select  id="sel" (change)="getCicloN($event.target.value)">
-                          <option *ngFor = "let item of resultadoCiclo" value="{{item.ciclo}}" >{{item.anio}} 
+                        <select  id="sel" (change)="getCicloN($event.target.value)" class="form-control">
+                          <option *ngFor = "let item of resultadoCiclo" value="{{item.ciclo}}" >{{item.anio}}
                           </option>
                        </select>
                       </div>
@@ -75,7 +75,7 @@
           </div>
           </div>
       </div>
-  
+
   <!-- MODAL PARA ACTUALIZAR UNA SECCION-->
       <div class="modal" tabindex="-1" id="update">
           <div class="modal-dialog">
@@ -102,14 +102,14 @@
                       <div class="form-group">
                         <label for="formGroupExampleInput">Grado</label>
                         <select  id="sel" (change)="getGrado($event.target.value)">
-                          <option *ngFor = "let item of resultadoGrado" value="{{item.grado}}" >{{item.nombre_grado}} 
+                          <option *ngFor = "let item of resultadoGrado" value="{{item.grado}}" >{{item.nombre_grado}}
                           </option>
                        </select>
                       </div>
                       <div class="form-group">
                         <label for="formGroupExampleInput">Ciclo</label>
                         <select  id="sel" (change)="getCiclo($event.target.value)">
-                          <option *ngFor = "let item of resultadoCiclo" value="{{item.ciclo}}" >{{item.anio}} 
+                          <option *ngFor = "let item of resultadoCiclo" value="{{item.ciclo}}" >{{item.anio}}
                           </option>
                        </select>
                       </div>

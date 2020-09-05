@@ -9,7 +9,7 @@ import { Alumno } from '../../models/alumnos'
 export class AlumnosInscripService {
 
   //Variable para la dirección IP del host
-  API_URI = 'http://localhost:3005/api/inscripcion';
+  API_URI = ' http://3.20.3.133:3010/api/alumnos';
 
   constructor(private http: HttpClient) { }
 

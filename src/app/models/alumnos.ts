@@ -4,8 +4,10 @@ export interface Alumno{
   apellido?: string,
   direccion?: string,
   telefono?: number,
-  id_alumno?: string,
+  cui?: number,
+  nacionalidad?: string,
+  codigo_personal?:string,
   encargado?: string,
   fecha_nacimiento?:Date,
-  estado?: string
+  estado?: number
 }

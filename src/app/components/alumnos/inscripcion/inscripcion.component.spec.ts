@@ -33,7 +33,7 @@ describe('InscripcionComponent', () => {
         expect(component.newAlumno.apellido).toEqual('');
         expect(component.newAlumno.direccion).toEqual('');
         expect(component.newAlumno.telefono).toEqual(0);
-        expect(component.newAlumno.id_alumno).toEqual('');
+        expect(component.newAlumno.cui).toEqual(0);
         expect(component.newAlumno.encargado).toEqual('');
         expect(component.newAlumno.fecha_nacimiento).toEqual(null);
         expect(component.newAlumno.estado).toEqual('');
@@ -47,7 +47,7 @@ describe('InscripcionComponent', () => {
         expect(component.updateAlumno.apellido).toEqual('');
         expect(component.updateAlumno.direccion).toEqual('');
         expect(component.updateAlumno.telefono).toEqual(0);
-        expect(component.updateAlumno.id_alumno).toEqual('');
+        expect(component.updateAlumno.cui).toEqual(0);
         expect(component.updateAlumno.encargado).toEqual('');
         expect(component.updateAlumno.fecha_nacimiento).toEqual(null);
         expect(component.updateAlumno.estado).toEqual('');
@@ -63,10 +63,10 @@ describe('InscripcionComponent', () => {
               apellido: 'Chajon',
               direccion: 'Ciudad Guatemala',
               telefono: 78849056,
-              id_alumno: '45',
+              cui: 45,
               encargado: 'Ana',
               fecha_nacimiento: new Date('18/01/1998'),
-              estado: '0'
+              estado: 1
           }
           component.ObtenerAlumno(var_alumno);
           expect(component.updateAlumno.alumno).toEqual(1);
@@ -74,10 +74,10 @@ describe('InscripcionComponent', () => {
           expect(component.updateAlumno.apellido).toEqual('Chajon');
           expect(component.updateAlumno.direccion).toEqual('Ciudad Guatemala');
           expect(component.updateAlumno.telefono).toEqual(78849056);
-          expect(component.updateAlumno.id_alumno).toEqual('45');
+          expect(component.updateAlumno.cui).toEqual(45);
           expect(component.updateAlumno.encargado).toEqual('Ana');
           expect(component.updateAlumno.fecha_nacimiento).toEqual(new Date('18/010/1998'));
-          expect(component.updateAlumno.estado).toEqual('0');
+          expect(component.updateAlumno.estado).toEqual(1);
         });
       });
     });
