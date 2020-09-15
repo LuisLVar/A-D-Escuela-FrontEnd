@@ -8,11 +8,12 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  /* it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('frontend app is running!');
-  });
+    expect(page.getTitleText()).toEqual('EMHG');
+  }); */
 
+  
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
     const logs = await browser.manage().logs().get(logging.Type.BROWSER);
