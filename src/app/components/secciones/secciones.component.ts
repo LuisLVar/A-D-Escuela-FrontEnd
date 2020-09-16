@@ -2,10 +2,11 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { Seccion } from '../../models/Seccion';
 import { SeccionesService } from '../../services/secciones.service';
 import { CicloEscolarService } from '../../services/ciclo_escolar/ciclo-escolar.service'
-//import { Ciclo } from '../../models/ciclo-escolar.interface';
-//import { Grado } from 'src/app/models/grado.interface';
-//import {GradoService} from '../../../services/grados/grado.service';
-//import {personal} from '../../models/personal';
+import { Ciclo } from '../../models/ciclo-escolar.interface';
+import { Grado } from 'src/app/models/grado.interface';
+import {GradoService} from '../../services/grados/grado.service';
+import {personal} from '../../models/personal';
+import {PersonalService} from '../../services/personal/personal.service';
 @Component({
   selector: 'app-secciones',
   templateUrl: './secciones.component.html',
@@ -16,8 +17,9 @@ export class SeccionesComponent implements OnInit {
   constructor(
     private _ciclo: CicloEscolarService,
     private _seccion: SeccionesService,
-    private zone: NgZone
-    //private gradoService: GradoService
+    private zone: NgZone,
+    private gradoService: GradoService,
+    private _personal:PersonalService
   ) { }
   ngOnInit(): void {
     this.Listar_Secciones();
@@ -40,8 +42,8 @@ export class SeccionesComponent implements OnInit {
   listaConsulta:any=[];
   listSecciones: any = [];
   resultadoCiclo: any = [];
-  resultadoPersonal: any = [{ personal: 1, nombre: "Juan", apellido: "Godinez" }, { personal: 2, nombre: "Marta", apellido: "de León" }];
-  resultadoGrado: any = [{ grado: 1, nombre_grado: "Primero Primaria" }, { grado: 2, nombre_grado: "Segundo Primaria" }]
+  resultadoPersonal: any = [];//[{ personal: 1, nombre: "Juan", apellido: "Godinez" }, { personal: 2, nombre: "Marta", apellido: "de León" }];
+  resultadoGrado: any = [];//[{ grado: 1, nombre_grado: "Primero Primaria" }, { grado: 2, nombre_grado: "Segundo Primaria" }]
 
   newSeccion: Seccion = {
     seccion: 0,
@@ -91,35 +93,36 @@ export class SeccionesComponent implements OnInit {
     this._ciclo.getCiclos().subscribe(
       res => {
         this.resultadoCiclo = res;
-        this.lista_Final();
+        
       },
       err => console.log(err)
     );
   }
 
-  /*Listar_Personal():void{
+  Listar_Personal():void{
    this._personal.getPersonal().subscribe(
      res => {
        this.resultadoPersonal = res;
      },
      err => console.log(err)
    );
- }*/
- /*Listar_Grados(): void {
+ }
+ Listar_Grados(): void {
   this.gradoService.getGrados().subscribe(
     res => {
-      this.listaGrado = res;
+      this.resultadoGrado = res;
+      this.lista_Final();
       console.log(res);
     },
     err => {
       console.log(err);
     }
   )
-}*/
+}
 
   CreateSeccion(): void {
     console.log(this.newSeccion);
-    delete this.newSeccion.seccion;
+    //delete this.newSeccion.seccion;
 
     this._seccion.saveSeccion(this.newSeccion)
       .subscribe(
@@ -154,6 +157,7 @@ export class SeccionesComponent implements OnInit {
       .subscribe(
         res => {
           console.log(res);
+          this.reloadPage();
         },
         err => {
           console.log(err);
@@ -192,14 +196,14 @@ export class SeccionesComponent implements OnInit {
   }
   getGradoN(val: any) {
     console.log("grado" + val);
-    this.newSeccion.grado = val;
+    this.newSeccion.grado = Number(val);
   }
   getCicloN(val: any) {
-    console.log("ciclo" + val);
-    this.newSeccion.ciclo = val;
+    console.log("cicloN" + val);
+    this.newSeccion.ciclo = Number(val);
   }
   getPersonalN(val: any) {
     console.log("personal" + val);
-    this.newSeccion.personal = val;
+    this.newSeccion.personal = Number(val);
   }
 }
