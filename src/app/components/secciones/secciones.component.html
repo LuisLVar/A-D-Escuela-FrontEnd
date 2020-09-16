@@ -8,6 +8,7 @@
           <th scope="col">#</th>
           <th scope="col">Nombre</th>
           <th scope="col">Ciclo</th>
+          <th scope="col">Grado</th>
           <th scope="col">Actualizar</th>
           <th scope="col">Eliminar</th>
         </tr>
@@ -17,8 +18,9 @@
           <th scope="row"><span class="badge badge-primary badge-pill">{{i+1}}</span></th>
           <td>{{item.nombre}}</td>
           <td>{{item.seccion_ciclo}}</td>
+          <td>{{item.seccion_grado}}</td>
           <td>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#update" (click)="ObtenerSeccion(item)">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#update" (click)="GetSeccion(item.seccion)">
                 <i class="fas fa-pencil-alt"></i>
               </button>
           </td>
@@ -48,7 +50,7 @@
                       </div>
                       <div class="form-group">
                         <label for="formGroupExampleInput">Personal</label>
-                        <select  id="sel" (change)="getPersonalN($event.target.value)" class="form-control">
+                        <select  id="sel" (change)="getPersonalN($event.target.value)"  class="form-control">
                           <option *ngFor = "let item of resultadoPersonal" value="{{item.personal}}" >{{item.nombre}}  {{item.apellido}}
                           </option>
                        </select>
@@ -133,8 +135,9 @@
               </div>
               <div class="modal-body text-center">
               <h4>Seccion a eliminar</h4>
-              <p>{{updateSeccion.nombre}}</p>
-              <p>Grado: {{updateSeccion.grado}}</p>
+              <p>{{deleteSeccion.nombre}}</p>
+              <p>Grado: {{deleteSeccion.grado}}</p>
+              <p>Ciclo: {{deleteSeccion.ciclo}}</p>
               </div>
               <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="DeleteSeccion()">Eliminar</button>

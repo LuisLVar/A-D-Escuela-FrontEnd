@@ -4,9 +4,10 @@ import { SeccionesService } from '../../services/secciones.service';
 import { CicloEscolarService } from '../../services/ciclo_escolar/ciclo-escolar.service'
 import { Ciclo } from '../../models/ciclo-escolar.interface';
 import { Grado } from 'src/app/models/grado.interface';
-import {GradoService} from '../../services/grados/grado.service';
-import {personal} from '../../models/personal';
-import {PersonalService} from '../../services/personal/personal.service';
+import { GradoService } from '../../services/grados/grado.service';
+import { personal } from '../../models/personal';
+import { PersonalService } from '../../services/personal/personal.service';
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 @Component({
   selector: 'app-secciones',
   templateUrl: './secciones.component.html',
@@ -19,32 +20,30 @@ export class SeccionesComponent implements OnInit {
     private _seccion: SeccionesService,
     private zone: NgZone,
     private gradoService: GradoService,
-    private _personal:PersonalService
+    private _personal: PersonalService
   ) { }
   ngOnInit(): void {
+    this.Listar_Personal();
     this.Listar_Secciones();
   }
   reloadPage() { // click handler or similar
     this.zone.runOutsideAngular(() => {
-        location.reload();
+      location.reload();
     });
-}
-
-  ObtenerSeccion(item: any): void { 
-    this.updateSeccion.nombre = item.nombre;
-    this.updateSeccion.ciclo = item.seccion_ciclo;
-    this.updateSeccion.grado = item.seccion_grado;
-    this.updateSeccion.personal = item.seccion_personal;
-    this.updateSeccion.seccion= item.seccion;
-    this.updateSeccion.estado= item.estado;
   }
-
-  listaConsulta:any=[];
+  listaConsulta: any = [];
   listSecciones: any = [];
   resultadoCiclo: any = [];
   resultadoPersonal: any = [];//[{ personal: 1, nombre: "Juan", apellido: "Godinez" }, { personal: 2, nombre: "Marta", apellido: "de León" }];
   resultadoGrado: any = [];//[{ grado: 1, nombre_grado: "Primero Primaria" }, { grado: 2, nombre_grado: "Segundo Primaria" }]
 
+  deleteSeccion:any = {
+    seccion: 0,
+    nombre: '',
+    estado: 1,
+    grado: '',
+    ciclo: 1
+  };
   newSeccion: Seccion = {
     seccion: 0,
     nombre: '',
@@ -55,25 +54,41 @@ export class SeccionesComponent implements OnInit {
   };
 
   updateSeccion: Seccion = {
-    seccion:0,
+    seccion: 0,
     nombre: '',
     estado: 1,
     grado: 1,
     personal: 1,
     ciclo: 1
   };
+
+  ObtenerSeccion(item: any): void {
+    this.deleteSeccion.nombre = item.nombre;
+    this.deleteSeccion.ciclo = item.seccion_ciclo;
+    this.deleteSeccion.grado = item.seccion_grado;
+    this.deleteSeccion.seccion = item.seccion;
+  }
+
+
   lista_Final() {
     console.log("entro");
     for (let index in this.listaConsulta) {
       let seccion = this.listaConsulta[index];
+      //ciclo
       for (let j in this.resultadoCiclo) {
-        let ciclo=this.resultadoCiclo[j];
+        let ciclo = this.resultadoCiclo[j];
         if (seccion.seccion_ciclo == ciclo.ciclo) {
-            seccion.seccion_ciclo=ciclo.anio;
+          seccion.seccion_ciclo = ciclo.anio;
         }
       }
       ///grado
-      //personal
+      for (let j in this.resultadoGrado) {
+        let grado = this.resultadoGrado[j];
+        if (seccion.seccion_grado == grado.grado) {
+          seccion.seccion_grado = grado.nombre_grado;
+        }
+      }
+
       this.listSecciones.push(seccion);
       console.log(seccion);
     }
@@ -82,8 +97,9 @@ export class SeccionesComponent implements OnInit {
     this._seccion.getSecciones().subscribe(
       res => {
         this.listaConsulta = res;
+        console.log(res);
         this.Listar_Ciclos();
-        
+
       },
       err => console.log(err)
     );
@@ -93,32 +109,49 @@ export class SeccionesComponent implements OnInit {
     this._ciclo.getCiclos().subscribe(
       res => {
         this.resultadoCiclo = res;
-        
+        this.Listar_Grados();
+
       },
       err => console.log(err)
     );
   }
 
-  Listar_Personal():void{
-   this._personal.getPersonal().subscribe(
-     res => {
-       this.resultadoPersonal = res;
-     },
-     err => console.log(err)
-   );
- }
- Listar_Grados(): void {
-  this.gradoService.getGrados().subscribe(
-    res => {
-      this.resultadoGrado = res;
-      this.lista_Final();
-      console.log(res);
-    },
-    err => {
-      console.log(err);
-    }
-  )
-}
+  GetSeccion(id): any {
+    this._seccion.getSeccion(id).subscribe(
+      res => {
+        let seccion: Seccion;
+        console.log(res);
+        seccion = res[0][0];
+        console.log("---");
+        console.log(seccion);
+        console.log("---");
+
+      },
+      err => {
+        console.log(err)
+      }
+    );
+  }
+
+  Listar_Personal(): void {
+    this._personal.getPersonal().subscribe(
+      res => {
+        this.resultadoPersonal = res;
+      },
+      err => console.log(err)
+    );
+  }
+  Listar_Grados(): void {
+    this.gradoService.getGrados().subscribe(
+      res => {
+        this.resultadoGrado = res;
+        this.lista_Final();
+      },
+      err => {
+        console.log(err);
+      }
+    )
+  }
 
   CreateSeccion(): void {
     console.log(this.newSeccion);
@@ -169,7 +202,7 @@ export class SeccionesComponent implements OnInit {
 
   DeleteSeccion(): void {
     console.log("delete");
-    this._seccion.deleteSeccion(this.updateSeccion.seccion)
+    this._seccion.deleteSeccion(this.deleteSeccion.seccion)
       .subscribe(
         res => {
           console.log(res);
