@@ -22,8 +22,7 @@ export class PersonalComponent implements OnInit {
   }
   ObtenerPersonal(item: personal): void { this.updatePersonal = item; }
 
-  listPersonal: any = [{ personal: 1, nombre: 'maria', apellido: 'guarez' },
-  { personal: 2, nombre: 'jose', apellido: 'fernandez' }];
+  listPersonal: any = [];
 
   updatePersonal: personal = {
     personal: 0,
@@ -96,6 +95,7 @@ export class PersonalComponent implements OnInit {
       .subscribe(
         res => {
           console.log(res);
+          this.reloadPage();
         },
         err => {
           console.log(err);
