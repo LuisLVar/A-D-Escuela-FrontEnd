@@ -9,7 +9,7 @@ import {personal} from '../../models/personal';
 export class PersonalService {
 
   //Variable para la dirección IP del host
-  API_URI = 'direccion';
+  API_URI = 'http://3.20.3.133:3010/api';
 
   constructor(private http: HttpClient) { }
 

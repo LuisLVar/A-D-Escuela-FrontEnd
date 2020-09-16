@@ -13,6 +13,7 @@ export class PersonalComponent implements OnInit {
     private zone: NgZone) { }
 
   ngOnInit(): void {
+    this.Listar_Personal();
   }
   reloadPage() { // click handler or similar
     this.zone.runOutsideAngular(() => {
@@ -31,9 +32,9 @@ export class PersonalComponent implements OnInit {
     direccion: '',
     telefono: '',
     estado: 1,
-    tipo_personal: 1,
-    escuela: 1,
+    cui:0,
     personal_escuela: 1,
+    personal_tipo_personal: 1,
     usuario: '',
     contrasenia: ''
   }
@@ -44,9 +45,9 @@ export class PersonalComponent implements OnInit {
     direccion: '',
     telefono: '',
     estado: 1,
-    tipo_personal: 1,
-    escuela: 1,
+    cui:0,
     personal_escuela: 1,
+    personal_tipo_personal: 1, 
     usuario: '',
     contrasenia: ''
   }
@@ -75,12 +76,16 @@ export class PersonalComponent implements OnInit {
     this.newPersonal.direccion = '';
     this.newPersonal.usuario = '';
     this.newPersonal.contrasenia = '';
+    this.newPersonal.telefono = '';
+    this.newPersonal.cui = 0;
     this.updatePersonal.nombre = '';
     this.updatePersonal.apellido = '';
     this.updatePersonal.telefono = '';
     this.updatePersonal.direccion = '';
     this.updatePersonal.usuario = '';
     this.updatePersonal.contrasenia = '';
+    this.updatePersonal.telefono = '';
+    this.updatePersonal.cui = 0;
   }
 
   UpdatePersonal(): void {
@@ -113,6 +118,16 @@ export class PersonalComponent implements OnInit {
       );
 
     this.Establecer_Valores();
+  }
+
+  Listar_Personal(): void {
+    this._personal.getPersonal().subscribe(
+      res => {
+        this.listPersonal=res;
+        
+      },
+      err => console.log(err)
+    );
   }
 
 }
