@@ -11,12 +11,9 @@ export class AppPage {
 }
 
 export class CrudGrado{
-
   nombre_grado: ElementFinder;
   btnGuardar: ElementFinder;
   btnNuevo: ElementFinder;
-
-
   constructor(){
     this.nombre_grado = element(by.id('nombre_grado'));
     this.btnGuardar = element(by.id('btnGuardar'));
@@ -55,3 +52,23 @@ export class CrudColores{
 
 }
 
+export class CrudAspectos{
+  nombre_aspecto: ElementFinder;
+  btnNuevo: ElementFinder;
+  btnGuardar: ElementFinder
+
+  constructor(){
+    this.nombre_aspecto = element(by.id('nombre_aspecto'));
+    this.btnGuardar = element(by.id('btnGuardar'));
+    this.btnNuevo = element(by.id('nuevo_aspecto'));
+  }
+
+  async navigateTo(){
+    await browser.get(`${browser.baseUrl}aspecto`);
+  }
+
+  async setValuesCrear(aspecto: string){
+    await this.nombre_aspecto.sendKeys(aspecto);
+  }
+
+}
