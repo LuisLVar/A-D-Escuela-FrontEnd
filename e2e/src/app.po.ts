@@ -33,3 +33,25 @@ export class CrudGrado{
 
 }
 
+export class CrudColores{
+
+  codigoColor: ElementFinder;
+  btnGuardar: ElementFinder;
+  btnNuevo: ElementFinder;
+
+  constructor(){
+    this.codigoColor = element(by.id('color'));
+    this.btnGuardar = element(by.id('btnGuardar'));
+    this.btnNuevo = element(by.id('nuevo_color'));
+  }
+
+  async navigateTo(){
+    await browser.get(`${browser.baseUrl}color`)
+  }
+
+  async setValuesCrear(color: string){
+    await this.codigoColor.sendKeys(color);
+  }
+
+}
+
