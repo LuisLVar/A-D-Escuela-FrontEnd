@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-success" data-toggle="modal" data-target="#nuevo">
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#nuevo" id="nuevo_grado">
     <i class="fas fa-plus-circle fa-fw"></i>&nbsp; Nuevo Grado
 </button>
 <br><br>
@@ -46,13 +46,13 @@
             <form>
                 <div class="form-group">
                 <label for="formGroupExampleInput">Nombre Grado</label>
-                <input type="text" class="form-control" name="nombre_grado" [(ngModel)]="newGrado.nombre_grado">
+                <input type="text" id="nombre_grado" class="form-control" name="nombre_grado" [(ngModel)]="newGrado.nombre_grado">
                 </div>
             </form>
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-success" data-dismiss="modal" (click)="Create_Grado()">Guardar</button>
+          <button id="btnGuardar" type="button" class="btn btn-success" data-dismiss="modal" (click)="Create_Grado()">Guardar</button>
         </div>
       </div>
     </div>
