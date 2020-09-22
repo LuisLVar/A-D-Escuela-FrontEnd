@@ -1,0 +1,105 @@
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#nuevo">
+    <i class="fas fa-plus-circle fa-fw"></i>&nbsp; Nuevo Aspecto
+</button>
+<br><br>
+<table class="table table-sm table-responsive-sm table-striped table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Aspecto</th>
+            <th scope="col">Actualizar</th>
+            <th scope="col">Eliminar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of listaAspecto">
+            <th scope="row">{{item.aspecto}}</th>
+            <td>{{item.nombre}}</td>
+
+            <td>
+                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#cambiar" (click)="obtenerAspecto(item)">
+            <i class="fas fa-pencil-alt"></i>
+            </button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#eliminar" (click)="obtenerAspecto(item)">
+            <i class="far fa-trash-alt"></i>
+            </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!--MODAL PARA CREAR UN NUEVO ASPECTO-->
+<div class="modal" tabindex="-1" id="nuevo">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Creacion de un Aspecto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Aspecto</label>
+                        <input type="text" class="form-control" name="nombre" [(ngModel)]="nuevoAspecto.nombre">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="CrearAspecto()">Registrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL PARA ACTUALIZAR ASPECTO, TALVEZ NO ES NECESARIO-->
+<div class="modal" tabindex="-1" id="cambiar">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Actualizacion de un aspecto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Aspecto</label>
+                        <input type="text" class="form-control" name="nombre" [(ngModel)]="aspectoEditar.nombre">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="EditarAspecto()">Registrar Cambio</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--MODAL PARA ADVERTIR AL USUARIO QUE VA A ELIMINA UN ASPECTO-->
+<div class="modal" tabindex="-1" id="eliminar">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Cuidado se eliminara el aspecto seleccionado</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <p>Aspecto a eliminar</p>
+                <p>{{aspectoEditar.nombre}}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="BorrarAspecto()">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>

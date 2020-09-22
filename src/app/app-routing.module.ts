@@ -9,6 +9,7 @@ import { GradoComponent } from './components/grados/grado/grado.component';
 import { AsigMateriaComponent } from './components/asig-materia/asig-materia.component'
 import { SeccionesComponent } from './components/secciones/secciones.component';
 import { PersonalComponent } from './components/personal/personal.component';
+import { AspectosComponent } from './components/aspectos/aspectos.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/portada', pathMatch: 'full' },
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'grados', component: GradoComponent },
   { path: 'asigmateria', component: AsigMateriaComponent },
   { path: 'secciones', component: SeccionesComponent },
-  { path: 'personal', component: PersonalComponent }
+  { path: 'personal', component: PersonalComponent },
+  { path: 'aspectos', component: AspectosComponent }
 
 ];
 
