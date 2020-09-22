@@ -11,5 +11,23 @@ export class AspectosService {
 
   constructor(private http: HttpClient) { }
 
+  getAspectos(){
+    return this.http.get(`${this.API_URI}`);
+  }
 
+  getAspecto(id: string){
+    return this.http.get(`${this.API_URI}/aspectos/${id}`);
+  }
+
+  saveAspecto(aspecto: any){
+    return this.http.post(`${this.API_URI}`,aspecto);
+  }
+
+  deleteAspecto(id: number | string){
+    return this.http.delete(`${this.API_URI}/${id}`);
+  }
+
+  updateAspecto(aspecto: any): Observable<any> {
+    return this.http.put(`${this.API_URI}`,aspecto);
+  }
 }
