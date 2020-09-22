@@ -55,3 +55,25 @@ export class CrudColores{
 
 }
 
+export class InscripcionAlumnos{
+
+  codigoAlumno: ElementFinder;
+  btnGuardar: ElementFinder;
+  btnNuevo: ElementFinder;
+
+  constructor(){
+    this.codigoAlumno = element(by.id('NombreAlumno'));
+    this.btnGuardar = element(by.id('btnCrearAlumno'));
+    this.btnNuevo = element(by.id('btnNuevoAlumno'));
+  }
+
+  async navigateTo(){
+    await browser.get(`${browser.baseUrl}inscripcion`)
+  }
+
+  async setValuesCrear(alumno: string){
+    await this.codigoAlumno.sendKeys(alumno);
+  }
+
+}
+

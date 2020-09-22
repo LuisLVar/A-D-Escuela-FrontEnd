@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-success" data-toggle="modal" data-target="#nuevo">
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#nuevo" id="btnNuevoAlumno">
   <i class="fas fa-user-plus fa-fw"></i>&nbsp; Nuevo Alumno
 </button>
 <br><br>
@@ -57,7 +57,7 @@
                   <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="nombre">Nombre</label>
-                      <input type="text" [(ngModel)]="newAlumno.nombre" class="form-control" name="name" required>
+                      <input type="text" [(ngModel)]="newAlumno.nombre" id="NombreAlumno" class="form-control" name="name" required>
                     </div>
                     <div class="form-group col-md-6">
                       <label for="apellidos">Apellidos</label>
@@ -101,7 +101,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-success" data-dismiss="modal" (click)="CreateAlumno()">Guardar</button>
+            <button type="button" class="btn btn-success" data-dismiss="modal" id="btnCrearAlumno" (click)="CreateAlumno()">Guardar</button>
             </div>
         </div>
         </div>
