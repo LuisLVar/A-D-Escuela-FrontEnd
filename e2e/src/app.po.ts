@@ -55,3 +55,24 @@ export class CrudColores{
 
 }
 
+export class CrudCiclos{
+
+  codigoCiclo: ElementFinder;
+  btnGuardar: ElementFinder;
+  btnNuevoCiclo: ElementFinder;
+
+  constructor(){
+    this.codigoCiclo = element(by.id('ciclo'));
+    this.btnGuardar = element(by.id('btnGuardar'));
+    this.btnNuevoCiclo = element(by.id('btnNuevoCiclo'));
+  }
+
+  async navigateTo(){
+    await browser.get(`${browser.baseUrl}ciclos`)
+  }
+
+  async setValuesCrear(ciclo: string){
+    await this.codigoCiclo.sendKeys(ciclo);
+  }
+
+}
