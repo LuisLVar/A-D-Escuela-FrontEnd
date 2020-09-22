@@ -55,7 +55,6 @@ export class CrudColores{
 
 }
 
-<<<<<<< HEAD
 export class CrudCiclos{
 
   codigoCiclo: ElementFinder;
@@ -77,7 +76,6 @@ export class CrudCiclos{
   }
 
 }
-=======
 export class InscripcionAlumnos{
 
   codigoAlumno: ElementFinder;
@@ -100,4 +98,3 @@ export class InscripcionAlumnos{
 
 }
 
->>>>>>> feature/bb_alumnos
