@@ -12,4 +12,15 @@ export class ColoresComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  colorcito: any;
+  descripcion: any;
+
+  crearColor() { 
+
+  }
+
+  confirmarColor() { 
+    
+  }
+
 }
