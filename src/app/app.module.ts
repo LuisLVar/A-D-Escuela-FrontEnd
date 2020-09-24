@@ -19,6 +19,7 @@ import { GradoComponent } from './components/grados/grado/grado.component';
 import { AsigMateriaComponent } from './components/asig-materia/asig-materia.component';
 import { PersonalComponent } from './components/personal/personal.component';
 import { AspectosComponent } from './components/aspectos/aspectos.component';
+import { InscripcionAlumnoComponent } from './component/inscripcion-alumno/inscripcion-alumno.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { AspectosComponent } from './components/aspectos/aspectos.component';
     GradoComponent,
     AsigMateriaComponent,
     PersonalComponent,
-    AspectosComponent
+    AspectosComponent,
+    InscripcionAlumnoComponent
   ],
   imports: [
     BrowserModule,
