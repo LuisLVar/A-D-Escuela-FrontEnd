@@ -1,46 +1,73 @@
 
-<div class="row">
-  <div class="col-md-8"></div>
-  <div class="col-md-4 text-right">
+<div class="row mt-4">
+  <div class="col-md-6">
+    {{colorcito}}
+  </div>
+  <div class="col-md-6">
     <div class="row">
-      <div class="col-md-6 form-group">
+      <div class="col-md-7 form-group  text-right">
         <input type="color" name="color" id="inputColor" [(ngModel)]="colorcito" class="form-control">
       </div>
-      <div class="col-md-6">
+      <div class="col-md-5  text-left">
         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#nuevo">
-          <i class="fas fa-plus-circle fa-fw"></i>&nbsp; Guardar
+          <i class="fas fa-plus-circle fa-fw"></i>
         </button>
       </div>
     </div>
   </div>
 </div>
 
-<!--
 <div class="row">
-  <div class="col-md-4 p-4" *ngFor="let grado of grados">
+  <div class="col-md-3 p-4" *ngFor="let color of colores">
       <div class="card card-photo" >
           <div class="card-header">
-              {{grado.nombre_grado}}
+            {{color.descripcion}}
+            <button type="button" class="close" data-toggle="modal" data-target="#eliminar" >
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-          <div class="card-body">
-            <ul class="list-group mt-4">
-              <li
-                class="list-group-item d-flex justify-content-between align-items-center"
-                *ngFor="let materia of grado.materias"
-                >
-                {{materia.nombre}}
-                <span
-                  class="text-danger cursor-hover"
-                  data-toggle="modal"
-                  data-target="#eliminar"
-                  (click)="ObtenerAsig(grado.grado,materia.materia)"
-                  >
-                  <i class="far fa-trash-alt"></i>
-                </span>
-              </li>
-            </ul>
-          </div>
+          <div class="card-body"  [style.background]="color.colorcito"> </div>
       </div>
   </div>
 </div>
--->
+
+<!--MODAL PARA ADVERTIR AL USUARIO QUE VA A ELIMINA UNA ASIGNACIÓN -->
+<div class="modal" tabindex="-1" id="eliminar">
+  <div class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <h2>¿Esta seguro de eliminar el siguiente color?</h2>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="eliminarColor()">Si</button>
+      </div>
+  </div>
+  </div>
+</div>
+
+
+<div class="modal" tabindex="-1" id="nuevo">
+  <div class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Creación de color</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <div class="form-group">
+          <textarea [(ngModel)]="descripcion" rows="4" cols="50" placeholder="Ingrese la Descripción del color"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal" (click)="confirmarColor()">Guardar</button>
+      </div>
+  </div>
+  </div>
+</div>
