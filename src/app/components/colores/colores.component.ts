@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ColoresComponent implements OnInit {
 
+  colorcitos: string = '';
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  saveColor(){
+
+  }
 }

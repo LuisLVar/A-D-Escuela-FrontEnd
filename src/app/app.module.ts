@@ -20,6 +20,8 @@ import { AsigMateriaComponent } from './components/asig-materia/asig-materia.com
 import { PersonalComponent } from './components/personal/personal.component';
 import { ColoresComponent } from './components/colores/colores.component';
 
+import { ColorPickerModule } from 'ngx-color-picker';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +44,8 @@ import { ColoresComponent } from './components/colores/colores.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ColorPickerModule
   ],
   providers: [
     CicloEscolarService,
