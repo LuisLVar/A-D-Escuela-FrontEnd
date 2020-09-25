@@ -8,14 +8,14 @@ import { Observable } from 'rxjs';
 export class ColorService {
 
   //Variable para la dirección IP del host
-  API_URI = 'http://localhost:3005/api/asigMaterias';
+  API_URI = 'http://localhost:3005/api/colores';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http?: HttpClient) { }
 
-  getAsigMaterias = () =>  this.http.get(`${this.API_URI}`);
-  getAsigMateria = (id: string|number) => this.http.get(`${this.API_URI}/${id}`);
-  saveAsigMateria = (asig: any) => this.http.post(`${this.API_URI}`,asig);
-  deleteAsigMateria = (id: number|string) => this.http.delete(`${this.API_URI}/${id}`);
-  updateAsigMateria = (id:number|string, updatedAsig: any): Observable<any> => this.http.put(`${this.API_URI}/${id}`,updatedAsig);
+  getColores = () =>  this.http.get(`${this.API_URI}`);
+  getColor = (id: string|number) => this.http.get(`${this.API_URI}/${id}`);
+  saveColor = (asig: any) => this.http.post(`${this.API_URI}`,asig);
+  deleteColor= (id: number|string) => this.http.delete(`${this.API_URI}/${id}`);
+  updateColor= (id:number|string, updatedAsig: any): Observable<any> => this.http.put(`${this.API_URI}/${id}`,updatedAsig);
 
 }
