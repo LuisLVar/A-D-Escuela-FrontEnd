@@ -28,7 +28,7 @@ describe('InscripcionAlumnoComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('Testing variables globales', () => {
+  /*describe('Testing variables globales', () => {
 
     describe('Pruebas a variable component.newAlumno para verificar estado inicial', () => {
       it('Prueba para newAlumno.alumno debe ser 0 para validar', () => {
@@ -88,5 +88,5 @@ describe('InscripcionAlumnoComponent', () => {
         });
       });
     });
-  });
+  });*/
 });
