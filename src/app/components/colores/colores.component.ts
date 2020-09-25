@@ -20,7 +20,7 @@ export class ColoresComponent implements OnInit {
   }
 
   confirmarColor() { 
-    
+    //Limpiar color
   }
 
 }
