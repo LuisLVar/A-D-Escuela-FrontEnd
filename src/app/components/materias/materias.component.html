@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-success" data-toggle="modal" data-target="#nuevo">
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#nuevo" id="btnNuevo">
   <i class="fas fa-plus-circle fa-fw"></i>&nbsp; Nueva Materia
 </button>
 <br><br>
@@ -44,15 +44,15 @@
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-                      <input type="text" [(ngModel)]="newMateria.nombre" class="form-control" name="name" placeholder="Ingrese el nombre de la materia..." required>
+                      <input type="text" [(ngModel)]="newMateria.nombre" class="form-control" id="nombre_materia" placeholder="Ingrese el nombre de la materia..." required>
                     </div>
                     <div class="form-group">
-                      <input type="text" [(ngModel)]="newMateria.contenido" class="form-control" name="description" placeholder="Ingrese su contenido de la materia...">
+                      <input type="text" [(ngModel)]="newMateria.contenido" class="form-control" id="contenido_materia" placeholder="Ingrese su contenido de la materia...">
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-success" data-dismiss="modal" (click)="CreateMateria()">Guardar</button>
+            <button type="button" class="btn btn-success" data-dismiss="modal" (click)="CreateMateria()" id="btnGuardar">Guardar</button>
             </div>
         </div>
         </div>
