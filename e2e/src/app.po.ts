@@ -98,3 +98,28 @@ export class InscripcionAlumnos{
 
 }
 
+export class CrudMateria{
+
+  nombre_materia: ElementFinder;
+  contenido_materia: ElementFinder;
+  btnGuardar: ElementFinder;
+  btnNuevo: ElementFinder;
+
+
+  constructor(){
+    this.nombre_materia = element(by.id('nombre_materia'));
+    this.contenido_materia = element(by.id('contenido_materia'));
+    this.btnGuardar = element(by.id('btnGuardar'));
+    this.btnNuevo = element(by.id('btnNuevo'));
+  }
+
+  async navigateTo(){
+    await browser.get(`${browser.baseUrl}materias`)
+  }
+
+  async setValuesCrear(nombre_materia: string, contenido_materia:string){
+    await this.nombre_materia.sendKeys(nombre_materia);
+    await this.contenido_materia.sendKeys(contenido_materia);
+  }
+
+}
