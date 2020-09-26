@@ -14,6 +14,8 @@ export class InscripcionAlumnoComponent implements OnInit {
   alumnos: any = [];
   secciones: any = [];
   inscripciones: any = [];
+  idAlumno:number = 0;
+  idSeccion:number = 0;
   newInscripcion: InscripAlumno = {
     fecha: '',
     inscripcion_alumno: 0,
@@ -26,6 +28,9 @@ export class InscripcionAlumnoComponent implements OnInit {
     private _inscrip: InscripAlumService) { }
 
   ngOnInit(): void {
+    this.getAlumnos();
+    this.getSecciones();
+    this.getInscripciones();
   }
 
   getAlumnos():void{
@@ -50,6 +55,9 @@ export class InscripcionAlumnoComponent implements OnInit {
   }
 
   saveInscripcion(){
-
+    this._inscrip.saveInscripAlumno(this.newInscripcion).subscribe(
+      res => console.log(res),
+      err => console.log(err)
+    )
   }
 }
