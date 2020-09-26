@@ -1,5 +1,5 @@
 export interface InscripAlumno{
-  fecha?: sring,
+  fecha?: string,
   inscripcion_seccion?: number,
   inscripcion_alumno?: number,
 }

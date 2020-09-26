@@ -3,8 +3,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { InscripcionAlumnoComponent } from './inscripcion-alumno.component';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { Seccion } from '../../models/Seccion';
-import { Alumno } from '../../models/alumnos';
-describe('InscripcionAlumnoComponent', () => {
+import { InscripAlumno} from '../../models/inscrip-alumnos'
+describe('Inscripcioninscripcion_AlumnoComponent', () => {
   let component: InscripcionAlumnoComponent;
   let fixture: ComponentFixture<InscripcionAlumnoComponent>;
 
@@ -28,65 +28,40 @@ describe('InscripcionAlumnoComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  /*describe('Testing variables globales', () => {
+  describe('Testing variables globales', () => {
 
-    describe('Pruebas a variable component.newAlumno para verificar estado inicial', () => {
-      it('Prueba para newAlumno.alumno debe ser 0 para validar', () => {
-        expect(component.newAlumno.alumno).toEqual(0);
+    describe('Pruebas a variable component.newInscripcion para verificar estado inicial', () => {
+      it('Prueba para newInscripcion.inscripcion_alumno debe ser 0 para validar', () => {
+        expect(component.newInscripcion.inscripcion_alumno).toEqual(0);
       });
-      it("Prueba para newAlumno.nombre debe ser = '' ", () => {
-        expect(component.newAlumno.nombre).toEqual('');
+      it("Prueba para newInscripcion.seccion debe ser = '' ", () => {
+        expect(component.newInscripcion.inscripcion_seccion).toEqual(0);
       });
-      it("Prueba para newAlumno.apellido debe ser = '' ", () => {
-        expect(component.newAlumno.apellido).toEqual('');
+      it("Prueba para newInscripcion.fecha debe ser = null ", () => {
+        expect(component.newInscripcion.fecha).toBe('');
       });
-      it("Prueba para newAlumno.direccion debe ser = '' ", () => {
-        expect(component.newAlumno.direccion).toEqual('');
-      });
-      it("Prueba para newAlumno.telefono debe ser = 0 ", () => {
-        expect(component.newAlumno.telefono).toEqual(0);
-      });
-      it("Prueba para newAlumno.cui debe ser = 0 ", () => {
-        expect(component.newAlumno.cui).toEqual(0);
-      });
-      it("Prueba para newAlumno.encargado debe ser = '' ", () => {
-        expect(component.newAlumno.encargado).toEqual('');
-      });
-      it("Prueba para newAlumno.fecha_nacimiento debe ser = null ", () => {
-        expect(component.newAlumno.fecha_nacimiento).toBeNull();
-      });
+      
     });
-    describe('Pruebas a variable component.newIns para verificar estado inicial', () => {
-      it('Prueba para newIns.alumno debe ser 0 para validar', () => {
-        expect(component.newIns.alumno).toEqual(0);
+    describe('Pruebas a variable idAlumno y idSeccion para verificar estado inicial', () => {
+      it('Prueba para idAlumno debe ser 0 para validar', () => {
+        expect(component.idAlumno).toEqual(0);
       });
-      it("Prueba para newIns.seccion debe ser = '' ", () => {
-        expect(component.newIns.seccion).toEqual(0);
-      });
-      it("Prueba para newIns.fecha debe ser = null ", () => {
-        expect(component.newIns.fecha).toBeNull();
+      it("Prueba para idSeccion debe ser = 0 ", () => {
+        expect(component.idSeccion).toEqual(0);
       });
       
     });
 
   });
 
-  describe('Testing para funciones', () => {
-    describe('Testing a funcion Obtener_Alumno', () => {
-      it("Debe cambiar los atributos de Seccion_Ciclo a ciclo=2 y nombre=WW", () => {
-        let valor_prueba = {
-          seccion: 30,
-          alumno: 20,
-          fecha: new Date()
-        };
-        component.ObtenerIns(valor_prueba);
-        it('Prueba para newIns.alumno debe ser 30 para validar', () => {
-          expect(component.newIns.alumno).toEqual(30);
+  describe('Listas globales para consultas', () => {
+        it('Prueba para inscripcion_alumnos debe ser != null ', () => {
+          expect(component.alumnos).toBeDefined();
         });
-        it("Prueba para newIns.seccion debe ser = 20 ", () => {
-          expect(component.newIns.seccion).toEqual(20);
+        it("Prueba para secciones  debe ser != null  ", () => {
+          expect(component.secciones).toBeDefined();
         });
-      });
-    });
-  });*/
+
+    
+  });
 });
