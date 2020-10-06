@@ -24,4 +24,3 @@ Then('Presionar el boton de guardar para que el valor se mande y se limpia', asy
     expect(await crudMateria.nombre_materia.getAttribute('value')).to.equal('Matematicas');
     expect(await crudMateria.contenido_materia.getAttribute('value')).to.equal('Contenido');
 });
-});
