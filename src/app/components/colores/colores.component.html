@@ -1,8 +1,6 @@
 
 <div class="row mt-4">
-  <div class="col-md-6">
-    {{colorcito}}
-  </div>
+  <div class="col-md-6"> {{colorcito}}</div>
   <div class="col-md-6">
     <div class="row">
       <div class="col-md-7 form-group  text-right">
@@ -22,7 +20,7 @@
       <div class="card card-photo" >
           <div class="card-header">
             {{color.descripcion}}
-            <button type="button" class="close" data-toggle="modal" data-target="#eliminar" >
+            <button type="button" class="close" (click)="obtenerId(color.id)" data-toggle="modal" data-target="#eliminar" >
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
