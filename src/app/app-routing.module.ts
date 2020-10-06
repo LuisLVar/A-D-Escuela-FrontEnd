@@ -11,6 +11,7 @@ import { SeccionesComponent } from './components/secciones/secciones.component';
 import { PersonalComponent } from './components/personal/personal.component';
 import { AspectosComponent } from './components/aspectos/aspectos.component';
 import { InscripcionAlumnoComponent } from './components/inscripcion-alumno/inscripcion-alumno.component';
+import { ColoresComponent } from './components/colores/colores.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/portada', pathMatch: 'full' },
@@ -23,7 +24,8 @@ const routes: Routes = [
   { path: 'secciones', component: SeccionesComponent },
   { path: 'personal', component: PersonalComponent },
   { path: 'aspectos', component: AspectosComponent },
-  { path: 'inscripcion_alumno', component: InscripcionAlumnoComponent }
+  { path: 'inscripcion_alumno', component: InscripcionAlumnoComponent },
+  { path: 'colores', component: ColoresComponent }
 
 ];
 

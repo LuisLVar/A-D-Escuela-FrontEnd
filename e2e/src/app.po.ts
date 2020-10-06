@@ -46,7 +46,7 @@ export class CrudColores{
   }
 
   async navigateTo(){
-    await browser.get(`${browser.baseUrl}color`)
+    await browser.get(`${browser.baseUrl}colores`)
   }
 
   async setValuesCrear(color: string){
