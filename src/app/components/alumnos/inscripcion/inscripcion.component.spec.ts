@@ -36,7 +36,7 @@ describe('InscripcionComponent', () => {
         expect(component.newAlumno.cui).toEqual(0);
         expect(component.newAlumno.encargado).toEqual('');
         expect(component.newAlumno.fecha_nacimiento).toEqual(null);
-        expect(component.newAlumno.estado).toEqual('');
+        expect(component.newAlumno.estado).toEqual(0);
       });
     });
 
@@ -50,7 +50,7 @@ describe('InscripcionComponent', () => {
         expect(component.updateAlumno.cui).toEqual(0);
         expect(component.updateAlumno.encargado).toEqual('');
         expect(component.updateAlumno.fecha_nacimiento).toEqual(null);
-        expect(component.updateAlumno.estado).toEqual('');
+        expect(component.updateAlumno.estado).toEqual(0);
       });
     });
 

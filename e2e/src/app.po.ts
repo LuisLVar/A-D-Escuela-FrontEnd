@@ -46,7 +46,7 @@ export class CrudColores{
   }
 
   async navigateTo(){
-    await browser.get(`${browser.baseUrl}color`)
+    await browser.get(`${browser.baseUrl}colores`)
   }
 
   async setValuesCrear(color: string){
@@ -98,6 +98,7 @@ export class InscripcionAlumnos{
 
 }
 
+<<<<<<< HEAD
 export class CrudMateria{
 
   nombre_materia: ElementFinder;
@@ -123,3 +124,29 @@ export class CrudMateria{
   }
 
 }
+=======
+export class CrudInscripcion{
+
+  seccion: ElementFinder;
+  btnGuardar: ElementFinder;
+  alumno: ElementFinder;
+  nuevo_insc: ElementFinder;
+
+
+  constructor(){
+    this.seccion = element(by.id('seccion'));
+    this.btnGuardar = element(by.id('btnGuardar'));
+    this.alumno = element(by.id('alumno'));
+    this.nuevo_insc = element(by.id('nuevo_insc'));
+  }
+
+  async navigateTo(){
+    await browser.get(`${browser.baseUrl}inscripcion_alumno`)
+  }
+
+  async setValuesCrear(alumno){
+    await this.alumno.sendKeys(alumno);
+  }
+
+}
+>>>>>>> feature/inscripcion_alumnos
