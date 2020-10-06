@@ -98,7 +98,6 @@ export class InscripcionAlumnos{
 
 }
 
-<<<<<<< HEAD
 export class CrudMateria{
 
   nombre_materia: ElementFinder;
@@ -124,7 +123,6 @@ export class CrudMateria{
   }
 
 }
-=======
 export class CrudInscripcion{
 
   seccion: ElementFinder;
@@ -149,4 +147,3 @@ export class CrudInscripcion{
   }
 
 }
->>>>>>> feature/inscripcion_alumnos

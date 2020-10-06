@@ -18,14 +18,11 @@ import { SeccionesComponent } from './components/secciones/secciones.component';
 import { GradoComponent } from './components/grados/grado/grado.component';
 import { AsigMateriaComponent } from './components/asig-materia/asig-materia.component';
 import { PersonalComponent } from './components/personal/personal.component';
-<<<<<<< HEAD
 import { AspectosComponent } from './components/aspectos/aspectos.component';
 import { InscripcionAlumnoComponent } from './components/inscripcion-alumno/inscripcion-alumno.component';
-=======
 import { ColoresComponent } from './components/colores/colores.component';
 
 import { ColorPickerModule } from 'ngx-color-picker';
->>>>>>> feature/colores
 
 @NgModule({
   declarations: [
@@ -43,12 +40,9 @@ import { ColorPickerModule } from 'ngx-color-picker';
     GradoComponent,
     AsigMateriaComponent,
     PersonalComponent,
-<<<<<<< HEAD
     AspectosComponent,
-    InscripcionAlumnoComponent
-=======
+    InscripcionAlumnoComponent,
     ColoresComponent
->>>>>>> feature/colores
   ],
   imports: [
     BrowserModule,
