@@ -16,15 +16,15 @@ export class AspectosService {
   }
 
   getAspecto(id: string){
-    return this.http.get(`${this.API_URI}/aspectos/${id}`);
+    return this.http.get(`${this.API_URI}/${id}`);
   }
 
-  saveAspecto(aspecto: any){
+  newAspecto(aspecto: any){
     return this.http.post(`${this.API_URI}`,aspecto);
   }
 
   deleteAspecto(id: number | string){
-    return this.http.delete(`${this.API_URI}/${id}`);
+    return this.http.delete(`${this.API_URI}/${Number(id)}`);
   }
 
   updateAspecto(aspecto: any): Observable<any> {
