@@ -38,10 +38,10 @@ export class ColoresComponent implements OnInit {
 
   }
 
-  eliminarColor(id:string|number){
-    this._color.deleteColor(id).subscribe(
-      res => console.log(res),
-      err => console.log(err)
-    )
+  eliminarColor(){
+    // this._color.deleteColor(id).subscribe(
+    //   res => console.log(res),
+    //   err => console.log(err)
+    // )
   }
 }
