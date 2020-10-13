@@ -22,4 +22,9 @@ describe('CalificacionPorMateriaComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Testin funcion Validar_Campo', ()=>{
+    component.buscar = "Matematica";
+    expect(component.Validar_Campo()).toBeTruthy();
+  })
 });

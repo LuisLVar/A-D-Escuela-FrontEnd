@@ -5,7 +5,7 @@
     <div class="col-md-5">
         <form class="form-inline">
             <div class="form-group">
-                <input type="text" class="form-control" name='buscar' placeholder="search" >
+                <input type="text" class="form-control" name='buscar' placeholder="Materia" [(ngModel)] ="buscar">
                 <button type="submit" class="btn btn-primary">
                     <i class="fas fa-search icono"></i>
                 </button>                
@@ -13,4 +13,25 @@
         </form>
     </div>
 </div>
+<br/>
+<table class="table table-sm table-responsive-sm table-striped table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre Alumno</th>
+        <th scope="col">Seccion</th>
+        <th scope="col">Grado</th>
+        <th scope="col">Nota</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let item of list_resultados; index as i;">
+        <th scope="row"><span class="badge badge-primary badge-pill">{{i+1}}</span></th>
+        <td>{{item.nombre_alumno}}</td>
+        <td>{{item.seccion}}</td>
+        <td>{{item.grado}}</td>
+        <td>{{item.nota}}</td>
+      </tr>
+    </tbody>
+  </table>
 
