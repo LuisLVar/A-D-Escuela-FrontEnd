@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CalificacionPorMateriaComponent } from './calificacion-por-materia.component';
+import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 
 describe('CalificacionPorMateriaComponent', () => {
   let component: CalificacionPorMateriaComponent;
@@ -8,7 +9,10 @@ describe('CalificacionPorMateriaComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CalificacionPorMateriaComponent ]
+      declarations: [ CalificacionPorMateriaComponent ],
+      imports: [
+        HttpClientTestingModule
+      ]
     })
     .compileComponents();
   }));

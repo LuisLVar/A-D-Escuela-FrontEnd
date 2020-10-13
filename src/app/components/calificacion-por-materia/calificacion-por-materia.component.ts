@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import {CalificacionMateriaService} from '../../services/calificacion/calificacion-materia.service';
+
 @Component({
   selector: 'app-calificacion-por-materia',
   templateUrl: './calificacion-por-materia.component.html',
@@ -11,7 +13,7 @@ export class CalificacionPorMateriaComponent implements OnInit {
 
   public list_resultados: any = [];
 
-  constructor() { }
+  constructor(private calificacionService: CalificacionMateriaService) { }
 
   ngOnInit(): void {
   }
@@ -25,7 +27,17 @@ export class CalificacionPorMateriaComponent implements OnInit {
 
   Buscar_Materia(){
     if(this.Validar_Campo()){
-
+      this.calificacionService.Search(this.buscar).subscribe(
+        res => {
+          this.list_resultados = res;
+          console.log(res);
+          this.buscar = '';
+        },
+        err => {
+          console.log(err);
+          this.buscar = '';
+        }
+      )
     }
   }
 
