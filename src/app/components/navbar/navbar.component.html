@@ -16,10 +16,15 @@
             <i class="fab fa-delicious icono"></i>Ciclos
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/inscripcion" routerLinkActive="active">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-users icono"></i>Alumnos
           </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" routerLink="/inscripcion">Listado</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" routerLink="/inscripcion_alumno">Inscripcion</a>
+          </div>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -48,7 +53,13 @@
             <i class="fas fa-graduation-cap icono"></i>Grados
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/aspectos" routerLinkActive="active">
+            <i class="fab fa-delicious  icono"></i>Aspectos
+          </a>
+        </li>
       </ul>
     </div>
     </div>
 </nav>
+

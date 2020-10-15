@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AspectosComponent implements OnInit {
 
-  listaAspecto: any;
+  listaAspecto: any = [{ aspecto: 1, nombre: "Uniforme adecuado" }, { aspecto: 2, nombre: "Conducta" },
+  { aspecto: 3, nombre: "Puntualidad" }];
 
   nuevoAspecto: any = {
     aspecto: 0,
@@ -24,20 +25,20 @@ export class AspectosComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  obtenerAspecto(aspecto: any) { 
+  obtenerAspecto(aspecto: any) {
 
   }
 
-  BorrarAspecto() { 
+  BorrarAspecto() {
 
   }
 
-  EditarAspecto() { 
+  EditarAspecto() {
 
   }
 
-  CrearAspecto() { 
-    
+  CrearAspecto() {
+
   }
 
 }
