@@ -23,6 +23,7 @@ import { InscripcionAlumnoComponent } from './components/inscripcion-alumno/insc
 import { ColoresComponent } from './components/colores/colores.component';
 
 import { ColorPickerModule } from 'ngx-color-picker';
+import { RegistroCalificacionComponent } from './components/registro-calificacion/registro-calificacion.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ColorPickerModule } from 'ngx-color-picker';
     PersonalComponent,
     AspectosComponent,
     InscripcionAlumnoComponent,
-    ColoresComponent
+    ColoresComponent,
+    RegistroCalificacionComponent
   ],
   imports: [
     BrowserModule,
