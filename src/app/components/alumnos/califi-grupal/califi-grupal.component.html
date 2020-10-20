@@ -1,1 +1,51 @@
-<p>califi-grupal works!</p>
+
+<!--LISTADO DE GRUPO SECCIONES y POR GRADO-->
+<div *ngIf="!irGrupales">
+  <table class="table table-sm table-responsive-sm table-striped table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Grado</th>
+        <th scope="col">Sección</th>
+        <th scope="col"><i class="fas fa-ellipsis-v"></i></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let item of listMateria; index as i;">
+        <th scope="row"><span class="badge badge-primary badge-pill">{{i+1}}</span></th>
+        <td>{{item.grado}}</td>
+        <td>{{item.seccion}}</td>
+        <td>
+          <button type="button" class="btn btn-warning" (click)="GradSec(item.idSec,idGrad)">
+            <i class="fas fa-arrow-circle-right icono"></i> Ir
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- LISTADO DE GRUPOS POR SECCIÓN-->
+<div *ngIf="irGrupales">
+  <button type="button" class="btn btn-success" (click)="irGrupales=false">
+    <i class="fas fa-arrow-circle-left icono"></i> Regresar
+  </button>
+  <hr>
+  <br>
+  <table class="table table-sm table-responsive-sm table-striped table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Alumno</th>
+        <th scope="col">Nota</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let item of grupales; index as i;">
+        <th scope="row"><span class="badge badge-primary badge-pill">{{i+1}}</span></th>
+        <td>{{item.alumno}}</td>
+        <td>{{item.nota}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
