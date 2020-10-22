@@ -7,7 +7,7 @@
         <input type="color" name="color" id="inputColor" [(ngModel)]="colorcito" class="form-control">
       </div>
       <div class="col-md-5  text-left">
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#nuevo">
+        <button type="button" class="btn btn-success" data-toggle="modal" id="nuevo_color" data-target="#nuevo">
           <i class="fas fa-plus-circle fa-fw"></i>
         </button>
       </div>
@@ -60,11 +60,11 @@
       </div>
       <div class="modal-body text-center">
         <div class="form-group">
-          <textarea [(ngModel)]="descripcion" rows="4" cols="50" placeholder="Ingrese la Descripción del color"></textarea>
+          <textarea [(ngModel)]="descripcion" rows="4" cols="50" id="color" placeholder="Ingrese la Descripción del color"></textarea>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-success" data-dismiss="modal" (click)="confirmarColor()">Guardar</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal" id="btnGuardar" (click)="confirmarColor()">Guardar</button>
       </div>
   </div>
   </div>

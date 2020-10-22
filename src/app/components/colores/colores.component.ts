@@ -41,7 +41,7 @@ export class ColoresComponent implements OnInit {
       )*/
       this.colores.push({ colorcito: this.colorcito, descripcion: this.descripcion, id:'25'})
     }
-
+    this.descripcion = '';
   }
 
   eliminarColor(){
