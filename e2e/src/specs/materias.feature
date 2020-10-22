@@ -4,4 +4,4 @@ Feature: Crud de materias
 Scenario: Nuevo materia 
     Given Que Me encuentre en la pagina de materia 
     When presione el boton de nuevo_materia e ingrese un nueva materia 
-    Then Presionar el boton de guardar para que el valor se mande y se limpia
+    Then Presionar el boton de guardar materia para que el valor se mande y se limpia

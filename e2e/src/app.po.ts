@@ -134,7 +134,7 @@ export class CrudInscripcion{
   constructor(){
     this.seccion = element(by.id('seccion'));
     this.btnGuardar = element(by.id('btnGuardar'));
-    this.alumno = element(by.id('alumno'));
+    this.alumno = element(by.id('alumno_n'));
     this.nuevo_insc = element(by.id('nuevo_insc'));
   }
 
@@ -142,7 +142,7 @@ export class CrudInscripcion{
     await browser.get(`${browser.baseUrl}inscripcion_alumno`)
   }
 
-  async setValuesCrear(alumno){
+  async setValuesCrear(alumno: number){
     await this.alumno.sendKeys(alumno);
   }
 

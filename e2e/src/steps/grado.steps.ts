@@ -18,7 +18,7 @@ When('presione el boton de nuevo_grado e ingrese un nuevo grado', async function
     expect(await crudGrado.nombre_grado.getAttribute('value')).to.equal('Primero Primaria');
 });
 
-Then('Presionar el boton de guardar para que el valor se mande y se limpia', async function () {
+Then('Presionar el boton de guardar grado para que el valor se mande y se limpia', async function () {
     await crudGrado.btnGuardar.click();
     expect(await crudGrado.nombre_grado.getAttribute('value')).to.equal('');
 });
