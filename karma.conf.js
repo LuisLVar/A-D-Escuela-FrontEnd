@@ -25,8 +25,27 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false,
+    /*******Comentar esto********/
+    
+    /*Sirve para jenkins */
+    customLaunchers: {
+      ChromeHeadless: {
+        base: 'Chrome',
+        flags: [
+          '--headless',
+          '--disable-gpu',
+          '--no-sandbox',
+          '--remote-debugging-port=9222',
+        ]
+      }
+    },
+    browsers: ['ChromeHeadless'],
+    singleRun: true,
+    /*Sirve para jenkins */
+
+    /***********Descomentar esto para ver sus pruebas unitarias*************************** */
+    /*browsers: ['Chrome'],
+    singleRun: false,*/
     restartOnFileChange: true
   });
 };
