@@ -1,1 +1,28 @@
-<p>registro-calificacion works!</p>
+<table class="table table-sm table-responsive-sm table-striped table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Ciclo</th>
+          <th scope="col">Actualizar</th>
+          <th scope="col">Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let item of listSecciones; index as i;">
+          <th scope="row"><span class="badge badge-primary badge-pill">{{i+1}}</span></th>
+          <td>{{item.nombre}}</td>
+          <td>{{item.seccion_ciclo}}</td>
+          <td>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#update" (click)="ObtenerSeccion(item)">
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+          </td>
+          <td>
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#eliminar" (click)="ObtenerSeccion(item)">
+                <i class="far fa-trash-alt"></i>
+              </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
