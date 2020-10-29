@@ -4,13 +4,20 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown" >
+            <ul class="navbar-nav ml-auto" *ngIf="!logueado">
                 <li class="nav-item">
                     <a class="nav-link" href="#" routerLink="/portada" routerLinkActive="active">
                         <i class="fas fa-home icono"></i>Home
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" routerLink="/login" routerLinkActive="active">
+                        <i class="fas fa-sign-in-alt icono"></i> Ingresar
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto" *ngIf="logueado">
                 <li class="nav-item">
                     <a class="nav-link" href="#" routerLink="/ciclos" routerLinkActive="active">
                         <i class="fab fa-delicious icono"></i>Ciclos
@@ -59,6 +66,11 @@
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/colores" routerLinkActive="active">
                         <i class="far fa-sticky-note"></i> Colores
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="salir()">
+                        <i class="fas fa-sign-out-alt icono"></i>Salir
                     </a>
                 </li>
             </ul>

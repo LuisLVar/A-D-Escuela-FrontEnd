@@ -12,20 +12,23 @@ import { PersonalComponent } from './components/personal/personal.component';
 import { AspectosComponent } from './components/aspectos/aspectos.component';
 import { InscripcionAlumnoComponent } from './components/inscripcion-alumno/inscripcion-alumno.component';
 import { ColoresComponent } from './components/colores/colores.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/portada', pathMatch: 'full' },
   { path: 'portada', component: PortadaComponent },
-  { path: 'ciclos', component: CicloEscolarComponent },
-  { path: 'materias', component: MateriasComponent },
-  { path: 'inscripcion', component: InscripcionComponent },
-  { path: 'grados', component: GradoComponent },
-  { path: 'asigmateria', component: AsigMateriaComponent },
-  { path: 'secciones', component: SeccionesComponent },
-  { path: 'personal', component: PersonalComponent },
-  { path: 'aspectos', component: AspectosComponent },
-  { path: 'inscripcion_alumno', component: InscripcionAlumnoComponent },
-  { path: 'colores', component: ColoresComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'ciclos', component: CicloEscolarComponent, canActivate: [AuthGuard] },
+  { path: 'materias', component: MateriasComponent, canActivate: [AuthGuard]  },
+  { path: 'inscripcion', component: InscripcionComponent, canActivate: [AuthGuard]  },
+  { path: 'grados', component: GradoComponent, canActivate: [AuthGuard]  },
+  { path: 'asigmateria', component: AsigMateriaComponent, canActivate: [AuthGuard]  },
+  { path: 'secciones', component: SeccionesComponent, canActivate: [AuthGuard]  },
+  { path: 'personal', component: PersonalComponent, canActivate: [AuthGuard]  },
+  { path: 'aspectos', component: AspectosComponent, canActivate: [AuthGuard]  },
+  { path: 'inscripcion_alumno', component: InscripcionAlumnoComponent, canActivate: [AuthGuard]  },
+  { path: 'colores', component: ColoresComponent, canActivate: [AuthGuard]  }
 
 ];
 

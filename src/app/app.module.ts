@@ -23,6 +23,8 @@ import { InscripcionAlumnoComponent } from './components/inscripcion-alumno/insc
 import { ColoresComponent } from './components/colores/colores.component';
 
 import { ColorPickerModule } from 'ngx-color-picker';
+import { LoginService } from './services/login/login.service';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,8 @@ import { ColorPickerModule } from 'ngx-color-picker';
     CicloEscolarService,
     FormsModule,
     HttpClientModule,
+    LoginService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
