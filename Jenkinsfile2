@@ -1,0 +1,44 @@
+pipeline {
+    agent any
+    triggers {
+        pollSCM('* * * * *')
+    }
+    stages {
+    stage('Install') {
+        
+      steps {  bat """
+                         c:
+                         cd "C:\\Users\\gabyz\\OneDrive\\Documents\\GitHub\\A-D-Escuela-FrontEnd"
+                         npm install
+                         """ }
+    }
+
+    stage('Build') {
+            steps { 
+                    bat """
+                         c:
+                         cd "C:\\Users\\gabyz\\OneDrive\\Documents\\GitHub\\A-D-Escuela-FrontEnd"
+                         npm run ng build
+                         """
+                    }
+        }
+        
+    
+  }
+  post {
+            always {
+                    mail to: 'gaby.z7guate@gmail.com, v.sdb.59@gmail.com,luisvarleon12@gmail.com,gerardo15.chay97@gmail.com,fernandoxhajon122@gmail.com',
+                    subject: "Se completo el pipeline de la clase",
+                    body: "Se ha terminado la construccion de '${env.JOB_NAME} ${env.BUILD_NUMBER}', porfavor revisar: ${env.BUILD_URL}"
+                
+                
+            }
+            failure{
+                mail to: 'gaby.z7guate@gmail.com, v.sdb.59@gmail.com,luisvarleon12@gmail.com,gerardo15.chay97@gmail.com,fernandoxhajon122@gmail.com',
+                subject: "Se completo el pipeline de la clase",
+                body: "El pipeline fallo. Se ha terminado la construccion '${env.JOB_NAME} ${env.BUILD_NUMBER}', porfavor revisar: ${env.BUILD_URL}."
+            }
+            
+           
+        }
+}
