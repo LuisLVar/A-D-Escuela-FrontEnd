@@ -1,10 +1,10 @@
 <label>Materia</label>
-<select  id="sel" (change)="change()" class="form-control">
+<select  id="sel" (change)="change()" class="form-control" [(ngModel)]="calificacion.materia">
   <option value=-1 >Materia</option>
   <option *ngFor = "let item of materias" value="{{item.materia}}" >{{item.nombre}}</option>
 </select>
 <label>Bloque</label>
-<select  id="sel" (change)="change()" >
+<select  id="sel" (change)="change()" [(ngModel)]="calificacion.bloque" >
   <option value=1 >Bloque 1</option>
   <option value=2 >Bloque 2</option>
   <option value=3 >Bloque 3</option>
@@ -17,6 +17,9 @@
         <th scope="col">#</th>
         <th scope="col">Nombre</th>
         <th scope="col">Apellido</th>
+        <th scope="col">CUI</th>
+        <th scope="col">Zona</th>
+        <th scope="col">Proyecto</th>
         <th scope="col">Ingresar</th>
       </tr>
     </thead>
@@ -24,6 +27,9 @@
       <tr *ngFor = "let item of alumnos; index as i;">
         <th scope="row"><span class="badge badge-primary badge-pill">{{i+1}}</span></th>
         <td>{{item.nombre}}</td>
+        <td>{{item.apellido}}</td>
+        <td>{{item.cui}}</td>
+        <td>{{item.apellido}}</td>
         <td>{{item.apellido}}</td>
         <td>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#update" (click)="ObtenerSeccion(item)">
