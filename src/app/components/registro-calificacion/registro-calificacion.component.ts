@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AnyNaptrRecord } from 'dns';
 import { SeccionesService } from '../../services/secciones.service';
 import {CalificacionService} from '../../services/calificacion/calificacion.service'
 import {Alumno} from '../../models/alumnos';
@@ -19,7 +18,29 @@ export class RegistroCalificacionComponent implements OnInit {
   //quemados para mientras
   alumnospeticion:any=[];
   alumnos:Calificacion[]=[];
-  calificacion={seccion:-1,alumno:-1,materia:-1,bloque:-1};
+  calificacion={seccion:-1,materia:-1,bloque:-1};
+  newCalificacion:Calificacion={
+    alumno:0,
+    nombre:'',
+    apellido:'',
+    cui:0,
+    seccion:0,
+    bloque:0,
+    materia:0,
+    zona:0,
+    proyecto:0
+  };
+  newC:Calificacion={
+    alumno:0,
+    nombre:'',
+    apellido:'',
+    cui:0,
+    seccion:0,
+    bloque:0,
+    materia:0,
+    zona:0,
+    proyecto:0
+  };
 
   ngOnInit(): void {
     //por ahora quemado del login
@@ -29,19 +50,18 @@ export class RegistroCalificacionComponent implements OnInit {
     //this.getSeccion(this.personal.personal); 
     //seccion para mientras
     this.seccion={seccion:4};
-    console.log(new Date().getFullYear());
     //materias
     this.getMaterias(this.seccion.seccion);
-    this.calificacion.seccion=this.seccion; //para mientras
+    this.calificacion.seccion=this.seccion.seccion; //para mientras
 
 
   }
   getSeccion(id:number): void {
-    this._seccion.getSeccionPersonal(id,'2020').subscribe(//TODO
+    this._seccion.getSeccionPersonal(id,(new Date().getFullYear()).toString()).subscribe(//TODO
       res => {
         console.log(res);
         this.seccion=res;
-        this.calificacion.seccion=this.seccion;
+        this.calificacion.seccion=this.seccion.seccion;
         
       },
       err => console.log(err)
@@ -61,9 +81,21 @@ export class RegistroCalificacionComponent implements OnInit {
     this._calificacion.getAlumnos(seccion,bloque).subscribe(
       res => {
         console.log(res);
-        this.alumnospeticion=res;
+        //this.alumnospeticion=res;//para mientras nel
+        this.alumnospeticion=[{alumno:1,nombre:'victor fernando',apellido:'Lopez Morales',cui:'12334567'}
+        ,{alumno:1,nombre:'victor fernando2',apellido:'Lopez Morales2',cui:'222212334567'}];
         for(let index in this.alumnospeticion){
-          let newC:Calificacion;
+          let newC:Calificacion={
+            alumno:0,
+            nombre:'',
+            apellido:'',
+            cui:0,
+            seccion:0,
+            bloque:0,
+            materia:0,
+            zona:0,
+            proyecto:0
+          };
           newC.alumno=this.alumnospeticion[index].alumno;
           newC.apellido=this.alumnospeticion[index].apellido;
           newC.nombre=this.alumnospeticion[index].nombre;
@@ -83,10 +115,19 @@ export class RegistroCalificacionComponent implements OnInit {
     );
   }
   change(){
-    if(this.calificacion.alumno!=-1 && this.calificacion.materia!=-1 && this.calificacion.bloque!=-1 && this.calificacion.seccion!=-1){
+    console.log(this.calificacion);
+    if( this.calificacion.materia!=-1 && this.calificacion.bloque!=-1 && this.calificacion.seccion!=-1){
       //hacer peticion
       this.getAlumnos(this.calificacion.seccion,this.calificacion.bloque);
     }
+  }
+  sendCalificacion(){
+    //poner el endpoint
+    console.log('Enviando Califcacion');
+    console.log(this.newCalificacion);
+  }
+  ObtenerAlumno(item:any){
+    this.newCalificacion=item;
   }
 
 
