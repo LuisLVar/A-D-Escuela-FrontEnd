@@ -18,5 +18,6 @@ export class SeccionesService {
   saveSeccion = (seccion: Seccion) => this.http.post(`${this.API_URI}/secciones`,seccion);
   deleteSeccion = (id: number|string) => this.http.delete(`${this.API_URI}/secciones/${id}`);
   updateSeccion = (seccion: Seccion) => this.http.put(`${this.API_URI}/secciones`,seccion);
+  getSeccionPersonal =(personal:number, anio:string) => this.http.post(`${this.API_URI}/secciones/personal`,{personal: personal,anio: anio});
 
 }
