@@ -20,14 +20,11 @@ export class LoginComponent implements OnInit {
 
   ingresar(){
     if(this.correo !== "" && this.pass!==""){
-      /*this._user.ingresar({corre:this.correo,password:this.pass}).subscribe(
-        res => {
-          localStorage.setItem('usuario', JSON.stringify(res));
-          this.router.navigate(['/ciclos']);
-        },
+      this._user.ingresar({user:this.correo,pwd:this.pass}).subscribe(
+        res => this._user.ingrese(res),
         err => console.error(err)
-      )*/
-      this._user.ingrese({user:"chay",password: "123"});
+      )
+
     }else{
       alert("Los campos son obligatorios")
     }
