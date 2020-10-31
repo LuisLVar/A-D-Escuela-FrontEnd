@@ -20,26 +20,17 @@ export class RegistroConductaComponent implements OnInit {
   alumnos:Calificacion[]=[];
   calificacion={seccion:-1,materia:-1,bloque:-1};
   newCalificacion:Calificacion={
-    alumno:0,
+    as_ib_inscripcion_alumno:0,
     nombre:'',
     apellido:'',
     cui:0,
-    seccion:0,
-    bloque:0,
-    materia:0,
+    as_ib_inscripcion_seccion:0,
+    as_ib_bloque:0,
+    as_materia:0,
     zona:0,
-    proyecto:0
-  };
-  newC:Calificacion={
-    alumno:0,
-    nombre:'',
-    apellido:'',
-    cui:0,
-    seccion:0,
-    bloque:0,
-    materia:0,
-    zona:0,
-    proyecto:0
+    proyecto:0,
+    nota_final:0,
+    promedio:0
   };
 
   ngOnInit(): void {
@@ -47,12 +38,12 @@ export class RegistroConductaComponent implements OnInit {
     //se tiene que personal es
     this.personal = {personal:1,nombre:'Maritza'};
     //get seccion del profesor
-    //this.getSeccion(this.personal.personal); 
+    this.getSeccion(this.personal.personal); 
     //seccion para mientras
-    this.seccion={seccion:4};
+    //this.seccion={seccion:4};
     //materias
     this.getMaterias(this.seccion.seccion);
-    this.calificacion.seccion=this.seccion.seccion; //para mientras
+    //this.calificacion.seccion=this.seccion.seccion; //para mientras
 
 
   }
@@ -81,30 +72,34 @@ export class RegistroConductaComponent implements OnInit {
     this._calificacion.getAlumnos(seccion,bloque).subscribe(
       res => {
         console.log(res);
-        //this.alumnospeticion=res;//para mientras nel
-        this.alumnospeticion=[{alumno:1,nombre:'victor fernando',apellido:'Lopez Morales',cui:'12334567'}
-        ,{alumno:1,nombre:'victor fernando2',apellido:'Lopez Morales2',cui:'222212334567'}];
+        this.alumnospeticion=res;//para mientras
+        /*this.alumnospeticion=[{alumno:1,nombre:'victor fernando',apellido:'Lopez Morales',cui:'12334567'}
+        ,{alumno:1,nombre:'victor fernando2',apellido:'Lopez Morales2',cui:'222212334567'}];*/
         for(let index in this.alumnospeticion){
           let newC:Calificacion={
-            alumno:0,
+            as_ib_inscripcion_alumno:0,
             nombre:'',
             apellido:'',
             cui:0,
-            seccion:0,
-            bloque:0,
-            materia:0,
+            as_ib_inscripcion_seccion:0,
+            as_ib_bloque:0,
+            as_materia:0,
             zona:0,
-            proyecto:0
+            proyecto:0,
+            nota_final:0,
+            promedio:0
           };
-          newC.alumno=this.alumnospeticion[index].alumno;
+          newC.as_ib_inscripcion_alumno=this.alumnospeticion[index].alumno;
           newC.apellido=this.alumnospeticion[index].apellido;
           newC.nombre=this.alumnospeticion[index].nombre;
           newC.cui=this.alumnospeticion[index].cui;
-          newC.seccion=this.calificacion.seccion;
-          newC.materia=this.calificacion.materia;
+          newC.as_ib_inscripcion_seccion=this.calificacion.seccion;
+          newC.as_materia=this.calificacion.materia;
           newC.zona=0;
           newC.proyecto=0;
-          newC.bloque=this.calificacion.bloque;
+          newC.nota_final=0;
+          newC.promedio=0;
+          newC.as_ib_bloque=this.calificacion.bloque;
           this.alumnos.push(newC);
         }
         //hacer los alumnos
@@ -122,12 +117,38 @@ export class RegistroConductaComponent implements OnInit {
     }
   }
   sendCalificacion(){
-    //poner el endpoint
     console.log('Enviando Califcacion');
     console.log(this.newCalificacion);
+    this._calificacion.insertCalificacion(this.newCalificacion).subscribe(
+      res => {
+        console.log(res);
+        //poner un alert
+        this.EstablecerValores();
+        
+      },
+      err => console.log(err)
+    );
+    
   }
+
   ObtenerAlumno(item:any){
     this.newCalificacion=item;
+  }
+  EstablecerValores(){
+    this.newCalificacion={
+      as_ib_inscripcion_alumno:0,
+      nombre:'',
+      apellido:'',
+      cui:0,
+      as_ib_inscripcion_seccion:0,
+      as_ib_bloque:0,
+      as_materia:0,
+      zona:0,
+      proyecto:0,
+      nota_final:0,
+      promedio:0
+    };
+    this.calificacion={seccion:-1,materia:-1,bloque:-1};
   }
 
 

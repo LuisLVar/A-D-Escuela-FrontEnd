@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Seccion } from '../../models/Seccion';
+import {Calificacion} from '../../models/calificacion';
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +16,8 @@ export class CalificacionService {
 
   getMateriasSecc = (id: number) => this.http.get(`${this.API_URI}/seccion_materia/${id}`);
   getAlumnos = (seccion: number,bloque:number) => this.http.get(`${this.API_URI}/inscripciones/alumnosBloque/${seccion}&${bloque}`);
+  insertCalificacion = (cal:Calificacion)=> this.http.post(`${this.API_URI}/calificacion`,cal);
+  updateCalificacion = (cal:Calificacion)=> this.http.put(`${this.API_URI}/calificacion`,cal);
+  getCalificaciones = ()=> this.http.get(`${this.API_URI}/calificacion`);
 
 }
