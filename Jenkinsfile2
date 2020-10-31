@@ -7,17 +7,22 @@ pipeline {
     stage('Install') {
         
       steps {  bat """
-                         c:
-                         cd "C:\\Users\\gabyz\\OneDrive\\Documents\\GitHub\\A-D-Escuela-FrontEnd"
+                         cd "A-D-Escuela-FrontEnd"
                          npm install
+                         """ }
+    }
+    stage('Unit Test') {
+        
+      steps {  bat """
+                         cd "A-D-Escuela-FrontEnd"
+                         npm run ng test
                          """ }
     }
 
     stage('Build') {
             steps { 
                     bat """
-                         c:
-                         cd "C:\\Users\\gabyz\\OneDrive\\Documents\\GitHub\\A-D-Escuela-FrontEnd"
+                         cd "A-D-Escuela-FrontEnd"
                          npm run ng build
                          """
                     }
