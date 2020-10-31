@@ -7,14 +7,14 @@ pipeline {
     stage('Install') {
         
       steps {  bat """
-                         cd "A-D-Escuela-FrontEnd"
+ 
                          npm install
                          """ }
     }
     stage('Unit Test') {
         
       steps {  bat """
-                         cd "A-D-Escuela-FrontEnd"
+  
                          npm run ng test
                          """ }
     }
@@ -22,7 +22,7 @@ pipeline {
     stage('Build') {
             steps { 
                     bat """
-                         cd "A-D-Escuela-FrontEnd"
+ 
                          npm run ng build
                          """
                     }
