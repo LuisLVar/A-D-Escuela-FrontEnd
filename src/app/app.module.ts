@@ -23,8 +23,12 @@ import { InscripcionAlumnoComponent } from './components/inscripcion-alumno/insc
 import { ColoresComponent } from './components/colores/colores.component';
 
 import { ColorPickerModule } from 'ngx-color-picker';
+<<<<<<< HEAD
 import { LoginService } from './services/login/login.service';
 import { AuthGuard } from './auth.guard';
+=======
+import { RegistroCalificacionComponent } from './components/registro-calificacion/registro-calificacion.component';
+>>>>>>> 3b98bffa4c7fdcb5b1ebe25aea754a9be4251def
 
 @NgModule({
   declarations: [
@@ -44,7 +48,8 @@ import { AuthGuard } from './auth.guard';
     PersonalComponent,
     AspectosComponent,
     InscripcionAlumnoComponent,
-    ColoresComponent
+    ColoresComponent,
+    RegistroCalificacionComponent
   ],
   imports: [
     BrowserModule,
