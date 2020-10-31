@@ -21,7 +21,12 @@ export class LoginComponent implements OnInit {
   ingresar(){
     if(this.correo !== "" && this.pass!==""){
       this._user.ingresar({user:this.correo,pwd:this.pass}).subscribe(
-        res => this._user.ingrese(res),
+        (res:any[]) => {
+          if(res.length > 0)
+            this._user.ingrese(res)
+          else
+            alert('Correo o contraseña incorrecta')
+        },
         err => console.error(err)
       )
 
