@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AsigMateriaComponent } from './asig-materia.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 
-describe('AsigMateriaComponent', () => {
+fdescribe('AsigMateriaComponent', () => {
   let component: AsigMateriaComponent;
   let fixture: ComponentFixture<AsigMateriaComponent>;
 

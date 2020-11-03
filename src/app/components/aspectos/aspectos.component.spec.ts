@@ -1,14 +1,18 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AspectosComponent } from './aspectos.component';
+import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 
-describe('AspectosComponent', () => {
+fdescribe('AspectosComponent', () => {
   let component: AspectosComponent;
   let fixture: ComponentFixture<AspectosComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AspectosComponent ]
+      declarations: [ AspectosComponent ],
+      imports: [
+        HttpClientTestingModule
+      ]
     })
     .compileComponents();
   }));

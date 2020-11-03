@@ -4,7 +4,7 @@ import { InscripcionAlumnoComponent } from './inscripcion-alumno.component';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { Seccion } from '../../models/Seccion';
 import { InscripAlumno} from '../../models/inscrip-alumnos'
-describe('Inscripcioninscripcion_AlumnoComponent', () => {
+fdescribe('Inscripcioninscripcion_AlumnoComponent', () => {
   let component: InscripcionAlumnoComponent;
   let fixture: ComponentFixture<InscripcionAlumnoComponent>;
 

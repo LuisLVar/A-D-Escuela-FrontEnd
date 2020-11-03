@@ -6,7 +6,7 @@ import {HttpClientTestingModule, HttpTestingController} from '@angular/common/ht
 
 import {Ciclo} from 'src/app/models/ciclo-escolar.interface';
 
-describe('CicloEscolarComponent', () => {
+fdescribe('CicloEscolarComponent', () => {
   let component: CicloEscolarComponent;
   let fixture: ComponentFixture<CicloEscolarComponent>;
 

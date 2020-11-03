@@ -44,8 +44,8 @@ module.exports = function (config) {
     /*Sirve para jenkins */
 
     /***********Descomentar esto para ver sus pruebas unitarias*************************** */
-    /*browsers: ['Chrome'],
-    singleRun: false,*/
+    browsers: ['Chrome'],
+    singleRun: false,
     restartOnFileChange: true
   });
 };

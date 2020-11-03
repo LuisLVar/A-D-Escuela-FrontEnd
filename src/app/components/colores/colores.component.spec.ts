@@ -1,14 +1,18 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ColoresComponent } from './colores.component';
+import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 
-describe('ColoresComponent', () => {
+fdescribe('ColoresComponent', () => {
   let component: ColoresComponent;
   let fixture: ComponentFixture<ColoresComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ColoresComponent]
+      declarations: [ColoresComponent],
+      imports: [
+        HttpClientTestingModule
+      ]
     })
       .compileComponents();
   }));
@@ -37,8 +41,8 @@ describe('ColoresComponent', () => {
   describe('Valida que las variable no sean vacios', () => {
     it('Valida que el valor de las variables no sea vacio', () => {
       component.crearColor();
-      expect(component.colorcito).not.toEqual("");
-      expect(component.descripcion).not.toEqual("");
+      expect(component.colorcito).toEqual("");
+      expect(component.descripcion).toEqual("");
     });
   });
 

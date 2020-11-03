@@ -7,7 +7,7 @@ import {HttpClientTestingModule, HttpTestingController} from '@angular/common/ht
 import { Grado } from 'src/app/models/grado.interface';
 
 
-describe('GradoComponent', () => {
+fdescribe('GradoComponent', () => {
   let component: GradoComponent;
   let fixture: ComponentFixture<GradoComponent>;
 
@@ -15,7 +15,7 @@ describe('GradoComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ GradoComponent ],
       imports: [
-        //HttpClientTestingModule
+        HttpClientTestingModule
       ]
     })
     .compileComponents();

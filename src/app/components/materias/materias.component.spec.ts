@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MateriasComponent } from './materias.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 
-describe('MateriasComponent', () => {
+fdescribe('MateriasComponent', () => {
   let component: MateriasComponent;
   let fixture: ComponentFixture<MateriasComponent>;
 
@@ -66,9 +66,9 @@ describe('MateriasComponent', () => {
       it('variable newMateria debe tener materia=0 y nombre="" y contenido=""', ()=>{
         component.Establecer_Valores();
         //parra que falle
-        expect(component.newMateria.materia).toEqual(-1);
-        expect(component.newMateria.nombre).toEqual('a');
-        expect(component.newMateria.contenido).toEqual('a');
+        expect(component.newMateria.materia).toEqual(0);
+        expect(component.newMateria.nombre).toEqual('');
+        expect(component.newMateria.contenido).toEqual('');
       });
     });
   });
