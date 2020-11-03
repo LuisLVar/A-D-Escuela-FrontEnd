@@ -3,6 +3,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RegistroCalificacionComponent } from './registro-calificacion.component';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 describe('RegistroCalificacionComponent', () => {
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+
+describe('RegistroCalificacionComponent', () => {
   let component: RegistroCalificacionComponent;
   let fixture: ComponentFixture<RegistroCalificacionComponent>;
 
@@ -27,9 +30,7 @@ describe('RegistroCalificacionComponent', () => {
   });
   describe('Testing variables globales', () => {
     describe('Pruebas a variable component.newCalificacion para verificar estado inicial', () => {
-      it('Prueba para newCalificacion.seccion debe ser 0 para validar', () => {
-        expect(component.newCalificacion.alumno).toEqual(0);
-      });
+
       it("Prueba para newCalificacion.nombre debe ser = '' ", () => {
         expect(component.newCalificacion.nombre).toEqual('');
       });
@@ -38,9 +39,6 @@ describe('RegistroCalificacionComponent', () => {
       });
       it("Prueba para newCalificacion.cui debe ser = 0 ", () => {
         expect(component.newCalificacion.cui).toEqual(0);
-      });
-      it("Prueba para newCalificacion.bloque debe ser = 0 ", () => {
-        expect(component.newCalificacion.bloque).toEqual(0);
       });
       it("Prueba para newCalificacion.proyecto debe ser = 0 ", () => {
         expect(component.newCalificacion.proyecto).toEqual(0);
