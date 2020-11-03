@@ -4,7 +4,7 @@ import { SeccionesComponent } from './secciones.component';
 
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { Seccion } from '../../models/Seccion';
-fdescribe('SeccionesComponent', () => {
+describe('SeccionesComponent', () => {
   let component: SeccionesComponent;
   let fixture: ComponentFixture<SeccionesComponent>;
 
@@ -66,7 +66,7 @@ fdescribe('SeccionesComponent', () => {
         expect(component.updateSeccion.grado).toEqual(1);
       });
       it("Prueba para updateSeccion.personal debe ser = 1 ", () => {
-        expect(component.updateSeccion.personal).toEqual(4567890);//
+        expect(component.updateSeccion.personal).toEqual(1);//
       });
       it("Prueba para updateSeccion.ciclo debe ser = 1 ", () => {
         expect(component.updateSeccion.ciclo).toEqual(1);
