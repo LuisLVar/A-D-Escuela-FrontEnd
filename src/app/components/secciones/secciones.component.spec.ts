@@ -4,7 +4,7 @@ import { SeccionesComponent } from './secciones.component';
 
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { Seccion } from '../../models/Seccion';
-fdescribe('SeccionesComponent', () => {
+describe('SeccionesComponent', () => {
   let component: SeccionesComponent;
   let fixture: ComponentFixture<SeccionesComponent>;
 

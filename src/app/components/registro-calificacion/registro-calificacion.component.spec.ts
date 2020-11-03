@@ -3,9 +3,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RegistroCalificacionComponent } from './registro-calificacion.component';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 describe('RegistroCalificacionComponent', () => {
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-
-describe('RegistroCalificacionComponent', () => {
   let component: RegistroCalificacionComponent;
   let fixture: ComponentFixture<RegistroCalificacionComponent>;
 
