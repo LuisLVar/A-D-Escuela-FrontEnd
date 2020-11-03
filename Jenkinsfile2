@@ -11,10 +11,18 @@ pipeline {
                          npm install
                          """ }
     }
+<<<<<<< HEAD
     stage('Unit Test') {
         
       steps {  bat """
   
+=======
+    stage('Unit Tests') {
+        
+      steps {  bat """
+                         c:
+                         cd "C:\\Users\\gabyz\\OneDrive\\Documents\\GitHub\\A-D-Escuela-FrontEnd"
+>>>>>>> feature/registro_conducta
                          npm run ng test
                          """ }
     }

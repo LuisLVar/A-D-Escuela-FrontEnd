@@ -26,6 +26,7 @@ import { ColorPickerModule } from 'ngx-color-picker';
 import { LoginService } from './services/login/login.service';
 import { AuthGuard } from './auth.guard';
 import { RegistroCalificacionComponent } from './components/registro-calificacion/registro-calificacion.component';
+import { RegistroConductaComponent } from './components/registro-conducta/registro-conducta.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { RegistroCalificacionComponent } from './components/registro-calificacio
     AspectosComponent,
     InscripcionAlumnoComponent,
     ColoresComponent,
-    RegistroCalificacionComponent
+    RegistroCalificacionComponent,
+    RegistroConductaComponent
   ],
   imports: [
     BrowserModule,

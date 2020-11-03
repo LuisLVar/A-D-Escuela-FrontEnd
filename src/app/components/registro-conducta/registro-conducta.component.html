@@ -1,0 +1,74 @@
+<label>Aspecto</label>
+<select  id="sel" (change)="change()" class="form-control" [(ngModel)]="calificacion.materia">
+  <option value=-1 selected>Materia</option>
+  <option *ngFor = "let item of materias" value="{{item.materia}}" >{{item.nombre}}</option>
+</select>
+<label>Bloque</label>
+<select  id="sel" (change)="change()" class="form-control" [(ngModel)]="calificacion.bloque" >
+  <option value=1 selected>Bloque 1</option>
+  <option value=2 >Bloque 2</option>
+  <option value=3 >Bloque 3</option>
+  <option value=4 >Bloque 4</option>
+</select>
+<br><br>
+<table class="table table-sm table-responsive-sm table-striped table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">CUI</th>
+        <th scope="col">Zona</th>
+        <th scope="col">Proyecto</th>
+        <th scope="col">Ingresar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let item of alumnos; index as i;">
+        <th scope="row"><span class="badge badge-primary badge-pill">{{i+1}}</span></th>
+        <td>{{item.nombre}}</td>
+        <td>{{item.apellido}}</td>
+        <td>{{item.cui}}</td>
+        <td>{{item.zona}}</td>
+        <td>{{item.proyecto}}</td>
+        <td>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#nuevo" (click)="ObtenerAlumno(item)">
+              <i class="fas fa-pencil-alt"></i>
+            </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+<!--MODAL PARA INGRESAR NOTA-->
+    <div class="modal" tabindex="-1" id="nuevo">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title">Ingresar Calificación</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+              <div class="modal-body text-center">
+                <h4>Alumno Seleccionado</h4>
+                <p>{{newCalificacion.nombre}}  {{newCalificacion.apellido}}</p>
+                </div>
+                <form>
+                    <div class="form-group">
+                      <label for="formGroupExampleInput">Zona</label>
+                      <input type="number" [(ngModel)]="newCalificacion.zona" class="form-control" name="zona" placeholder="Ingrese la zona..." required>
+                    </div>
+                    <div class="form-group">
+                      <label for="formGroupExampleInput">Proyecto</label>
+                      <input type="number" [(ngModel)]="newCalificacion.proyecto" class="form-control" name="proyecto" placeholder="Ingrese el proyecto..." required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal" (click)="sendCalificacion()">Enviar</button>
+            </div>
+        </div>
+        </div>
+    </div>

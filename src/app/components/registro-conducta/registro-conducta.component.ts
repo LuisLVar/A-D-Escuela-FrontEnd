@@ -5,11 +5,11 @@ import {Alumno} from '../../models/alumnos';
 import {Materia} from '../../models/materia';
 import {Calificacion} from '../../models/calificacion';
 @Component({
-  selector: 'app-registro-calificacion',
-  templateUrl: './registro-calificacion.component.html',
-  styleUrls: ['./registro-calificacion.component.css']
+  selector: 'app-registro-conducta',
+  templateUrl: './registro-conducta.component.html',
+  styleUrls: ['./registro-conducta.component.css']
 })
-export class RegistroCalificacionComponent implements OnInit {
+export class RegistroConductaComponent implements OnInit {
 
   constructor(private _seccion: SeccionesService, private _calificacion:CalificacionService) { }
   personal:any;
