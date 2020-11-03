@@ -37,7 +37,7 @@ fdescribe('CicloEscolarComponent', () => {
         expect(component.newCiclo.ciclo).toEqual(0);
       });
       it('newCiclo.anio debe ser 0 al inicial el componente', ()=>{
-        expect(component.newCiclo.anio).toEqual(-1);
+        expect(component.newCiclo.anio).toEqual(0);
       });
     });
 
