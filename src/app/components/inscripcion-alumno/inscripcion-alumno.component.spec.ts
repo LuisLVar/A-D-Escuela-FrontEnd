@@ -47,7 +47,7 @@ fdescribe('Inscripcioninscripcion_AlumnoComponent', () => {
         expect(component.idAlumno).toEqual(0);
       });
       it("Prueba para idSeccion debe ser = 0 ", () => {
-        expect(component.idSeccion).toEqual(0);
+        expect(component.idSeccion).toEqual(8900);
       });
       
     });
