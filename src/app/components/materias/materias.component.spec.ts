@@ -65,9 +65,10 @@ describe('MateriasComponent', () => {
     describe('Prueba a funcion Establecer_Valores()', ()=> {
       it('variable newMateria debe tener materia=0 y nombre="" y contenido=""', ()=>{
         component.Establecer_Valores();
-        expect(component.newMateria.materia).toEqual(0);
-        expect(component.newMateria.nombre).toEqual('');
-        expect(component.newMateria.contenido).toEqual('');
+        //parra que falle
+        expect(component.newMateria.materia).toEqual(-1);
+        expect(component.newMateria.nombre).toEqual('a');
+        expect(component.newMateria.contenido).toEqual('a');
       });
     });
   });

@@ -15,7 +15,7 @@ describe('GradoComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ GradoComponent ],
       imports: [
-        HttpClientTestingModule
+        //HttpClientTestingModule
       ]
     })
     .compileComponents();
