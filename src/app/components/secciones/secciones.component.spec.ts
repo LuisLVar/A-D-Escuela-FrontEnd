@@ -66,7 +66,7 @@ fdescribe('SeccionesComponent', () => {
         expect(component.updateSeccion.grado).toEqual(1);
       });
       it("Prueba para updateSeccion.personal debe ser = 1 ", () => {
-        expect(component.updateSeccion.personal).toEqual(1);
+        expect(component.updateSeccion.personal).toEqual(1);//
       });
       it("Prueba para updateSeccion.ciclo debe ser = 1 ", () => {
         expect(component.updateSeccion.ciclo).toEqual(1);
